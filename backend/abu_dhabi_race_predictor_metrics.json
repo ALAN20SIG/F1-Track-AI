@@ -1,0 +1,26 @@
+{
+  "overall_accuracy": 16.55,
+  "mean_absolute_error": 2.34,
+  "cross_validation_mean": 16.78,
+  "cross_validation_std": 1.08,
+  "top3_podium_accuracy": 89.15,
+  "feature_importance": {
+    "abu_dhabi_avg_finish": 0.3207,
+    "driver_skill_rating": 0.1269,
+    "pit_stop_efficiency": 0.1112,
+    "recent_form_score": 0.1088,
+    "season_points": 0.0889,
+    "tyre_deg_rate": 0.0811,
+    "qualifying_position": 0.0662,
+    "air_temp": 0.0296,
+    "track_temp": 0.0276,
+    "grid_position": 0.0244,
+    "team_performance_rating": 0.0089,
+    "car_reliability_index": 0.0059
+  },
+  "training_samples": 8000,
+  "test_samples": 2000,
+  "total_features": 12,
+  "model_type": "GradientBoostingClassifier",
+  "trained_at": "2025-12-16T19:03:31.872014"
+}

@@ -1,0 +1,56 @@
+{
+  "race_laps": 57,
+  "n_simulations": 1000,
+  "drivers": [
+    {
+      "driver_code": "VER",
+      "driver_name": "Max Verstappen",
+      "team": "Red Bull Racing",
+      "base_lap": 83.5,
+      "degradation": 0.025,
+      "lap_std": 0.15,
+      "pit_stops": [18, 38],
+      "pit_delta": 22.0
+    },
+    {
+      "driver_code": "NOR",
+      "driver_name": "Lando Norris",
+      "team": "McLaren",
+      "base_lap": 83.7,
+      "degradation": 0.022,
+      "lap_std": 0.18,
+      "pit_stops": [20, 40],
+      "pit_delta": 21.5
+    },
+    {
+      "driver_code": "LEC",
+      "driver_name": "Charles Leclerc",
+      "team": "Ferrari",
+      "base_lap": 83.6,
+      "degradation": 0.023,
+      "lap_std": 0.16,
+      "pit_stops": [19, 39],
+      "pit_delta": 22.2
+    },
+    {
+      "driver_code": "PIA",
+      "driver_name": "Oscar Piastri",
+      "team": "McLaren",
+      "base_lap": 83.8,
+      "degradation": 0.024,
+      "lap_std": 0.17,
+      "pit_stops": [20, 40],
+      "pit_delta": 21.8
+    },
+    {
+      "driver_code": "HAM",
+      "driver_name": "Lewis Hamilton",
+      "team": "Ferrari",
+      "base_lap": 83.7,
+      "degradation": 0.026,
+      "lap_std": 0.19,
+      "pit_stops": [19, 39],
+      "pit_delta": 22.5
+    }
+  ]
+}

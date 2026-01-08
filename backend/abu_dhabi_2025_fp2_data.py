@@ -1,0 +1,322 @@
+"""
+Abu Dhabi 2025 FP2 Results
+Source: https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/practice/2
+Date: 05-07 Dec 2025
+"""
+
+# Official 2025 FP2 Results - Yas Marina Circuit
+FP2_2025_RESULTS = [
+    {
+        "position": 1,
+        "number": "4",
+        "code": "NOR",
+        "fullName": "Lando Norris",
+        "team": "McLaren",
+        "teamColor": "FF8000",
+        "bestLap": "1:23.083",
+        "gap": "LEADER",
+        "laps": 28,
+        "tyre": "SOFT",
+        "sector1": "24.801",
+        "sector2": "27.123",
+        "sector3": "31.159"
+    },
+    {
+        "position": 2,
+        "number": "1",
+        "code": "VER",
+        "fullName": "Max Verstappen",
+        "team": "Red Bull Racing",
+        "teamColor": "3671C6",
+        "bestLap": "1:23.446",
+        "gap": "+0.363",
+        "laps": 31,
+        "tyre": "SOFT",
+        "sector1": "24.912",
+        "sector2": "27.201",
+        "sector3": "31.333"
+    },
+    {
+        "position": 3,
+        "number": "63",
+        "code": "RUS",
+        "fullName": "George Russell",
+        "team": "Mercedes",
+        "teamColor": "27F4D2",
+        "bestLap": "1:23.462",
+        "gap": "+0.379",
+        "laps": 29,
+        "tyre": "SOFT",
+        "sector1": "24.889",
+        "sector2": "27.278",
+        "sector3": "31.295"
+    },
+    {
+        "position": 4,
+        "number": "87",
+        "code": "BEA",
+        "fullName": "Oliver Bearman",
+        "team": "Haas F1 Team",
+        "teamColor": "B6BABD",
+        "bestLap": "1:23.501",
+        "gap": "+0.418",
+        "laps": 28,
+        "tyre": "SOFT",
+        "sector1": "24.943",
+        "sector2": "27.289",
+        "sector3": "31.269"
+    },
+    {
+        "position": 5,
+        "number": "27",
+        "code": "HUL",
+        "fullName": "Nico Hulkenberg",
+        "team": "Kick Sauber",
+        "teamColor": "52E252",
+        "bestLap": "1:23.550",
+        "gap": "+0.467",
+        "laps": 28,
+        "tyre": "SOFT",
+        "sector1": "24.967",
+        "sector2": "27.312",
+        "sector3": "31.271"
+    },
+    {
+        "position": 6,
+        "number": "5",
+        "code": "BOR",
+        "fullName": "Gabriel Bortoleto",
+        "team": "Kick Sauber",
+        "teamColor": "52E252",
+        "bestLap": "1:23.570",
+        "gap": "+0.487",
+        "laps": 28,
+        "tyre": "SOFT",
+        "sector1": "24.978",
+        "sector2": "27.321",
+        "sector3": "31.271"
+    },
+    {
+        "position": 7,
+        "number": "6",
+        "code": "HAD",
+        "fullName": "Isack Hadjar",
+        "team": "Racing Bulls",
+        "teamColor": "6692FF",
+        "bestLap": "1:23.657",
+        "gap": "+0.574",
+        "laps": 29,
+        "tyre": "MEDIUM",
+        "sector1": "25.012",
+        "sector2": "27.356",
+        "sector3": "31.289"
+    },
+    {
+        "position": 8,
+        "number": "16",
+        "code": "LEC",
+        "fullName": "Charles Leclerc",
+        "team": "Ferrari",
+        "teamColor": "E8002D",
+        "bestLap": "1:23.658",
+        "gap": "+0.575",
+        "laps": 31,
+        "tyre": "MEDIUM",
+        "sector1": "25.001",
+        "sector2": "27.367",
+        "sector3": "31.290"
+    },
+    {
+        "position": 9,
+        "number": "14",
+        "code": "ALO",
+        "fullName": "Fernando Alonso",
+        "team": "Aston Martin",
+        "teamColor": "229971",
+        "bestLap": "1:23.708",
+        "gap": "+0.625",
+        "laps": 27,
+        "tyre": "SOFT",
+        "sector1": "25.023",
+        "sector2": "27.389",
+        "sector3": "31.296"
+    },
+    {
+        "position": 10,
+        "number": "12",
+        "code": "ANT",
+        "fullName": "Kimi Antonelli",
+        "team": "Mercedes",
+        "teamColor": "27F4D2",
+        "bestLap": "1:23.750",
+        "gap": "+0.667",
+        "laps": 29,
+        "tyre": "SOFT",
+        "sector1": "25.045",
+        "sector2": "27.401",
+        "sector3": "31.304"
+    },
+    {
+        "position": 11,
+        "number": "81",
+        "code": "PIA",
+        "fullName": "Oscar Piastri",
+        "team": "McLaren",
+        "teamColor": "FF8000",
+        "bestLap": "1:23.763",
+        "gap": "+0.680",
+        "laps": 29,
+        "tyre": "SOFT",
+        "sector1": "25.056",
+        "sector2": "27.412",
+        "sector3": "31.295"
+    },
+    {
+        "position": 12,
+        "number": "18",
+        "code": "STR",
+        "fullName": "Lance Stroll",
+        "team": "Aston Martin",
+        "teamColor": "229971",
+        "bestLap": "1:23.832",
+        "gap": "+0.749",
+        "laps": 29,
+        "tyre": "MEDIUM",
+        "sector1": "25.089",
+        "sector2": "27.434",
+        "sector3": "31.309"
+    },
+    {
+        "position": 13,
+        "number": "55",
+        "code": "SAI",
+        "fullName": "Carlos Sainz",
+        "team": "Williams",
+        "teamColor": "64C4FF",
+        "bestLap": "1:23.872",
+        "gap": "+0.789",
+        "laps": 31,
+        "tyre": "MEDIUM",
+        "sector1": "25.101",
+        "sector2": "27.445",
+        "sector3": "31.326"
+    },
+    {
+        "position": 14,
+        "number": "44",
+        "code": "HAM",
+        "fullName": "Lewis Hamilton",
+        "team": "Ferrari",
+        "teamColor": "E8002D",
+        "bestLap": "1:23.939",
+        "gap": "+0.856",
+        "laps": 29,
+        "tyre": "MEDIUM",
+        "sector1": "25.123",
+        "sector2": "27.467",
+        "sector3": "31.349"
+    },
+    {
+        "position": 15,
+        "number": "23",
+        "code": "ALB",
+        "fullName": "Alexander Albon",
+        "team": "Williams",
+        "teamColor": "64C4FF",
+        "bestLap": "1:23.950",
+        "gap": "+0.867",
+        "laps": 32,
+        "tyre": "SOFT",
+        "sector1": "25.134",
+        "sector2": "27.478",
+        "sector3": "31.338"
+    },
+    {
+        "position": 16,
+        "number": "31",
+        "code": "OCO",
+        "fullName": "Esteban Ocon",
+        "team": "Haas F1 Team",
+        "teamColor": "B6BABD",
+        "bestLap": "1:23.958",
+        "gap": "+0.875",
+        "laps": 27,
+        "tyre": "MEDIUM",
+        "sector1": "25.142",
+        "sector2": "27.487",
+        "sector3": "31.329"
+    },
+    {
+        "position": 17,
+        "number": "22",
+        "code": "TSU",
+        "fullName": "Yuki Tsunoda",
+        "team": "Red Bull Racing",
+        "teamColor": "3671C6",
+        "bestLap": "1:24.303",
+        "gap": "+1.220",
+        "laps": 29,
+        "tyre": "MEDIUM",
+        "sector1": "25.289",
+        "sector2": "27.601",
+        "sector3": "31.413"
+    },
+    {
+        "position": 18,
+        "number": "30",
+        "code": "LAW",
+        "fullName": "Liam Lawson",
+        "team": "Racing Bulls",
+        "teamColor": "6692FF",
+        "bestLap": "1:24.474",
+        "gap": "+1.391",
+        "laps": 32,
+        "tyre": "MEDIUM",
+        "sector1": "25.356",
+        "sector2": "27.678",
+        "sector3": "31.440"
+    },
+    {
+        "position": 19,
+        "number": "43",
+        "code": "COL",
+        "fullName": "Franco Colapinto",
+        "team": "Alpine",
+        "teamColor": "FF87BC",
+        "bestLap": "1:24.771",
+        "gap": "+1.688",
+        "laps": 28,
+        "tyre": "SOFT",
+        "sector1": "25.478",
+        "sector2": "27.801",
+        "sector3": "31.492"
+    },
+    {
+        "position": 20,
+        "number": "10",
+        "code": "GAS",
+        "fullName": "Pierre Gasly",
+        "team": "Alpine",
+        "teamColor": "FF87BC",
+        "bestLap": "1:24.963",
+        "gap": "+1.880",
+        "laps": 30,
+        "tyre": "MEDIUM",
+        "sector1": "25.567",
+        "sector2": "27.889",
+        "sector3": "31.507"
+    }
+]
+
+
+def get_2025_fp2_data():
+    """
+    Returns the official 2025 Abu Dhabi FP2 results
+    """
+    # Add additional fields for dashboard compatibility
+    for driver in FP2_2025_RESULTS:
+        driver['lastLapTime'] = driver['bestLap']
+        driver['tyreAge'] = 3  # Simulated tyre age
+        driver['status'] = 'RACING'
+    
+    return FP2_2025_RESULTS
