@@ -271,3 +271,4 @@ Formula 1 is one of the most data-intensive sports in the world.
 Yet real-time predictive intelligence remains underutilized.
 
 F1-Track-AI represents a shift from descriptive analytics to prescriptive race intelligence.
+
