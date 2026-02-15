@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const TopBar = ({ raceTime }) => {
+  const [localTime, setLocalTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
   const [weather, setWeather] = useState({
     track_temp: 42,
     air_temp: 31,
@@ -46,7 +47,20 @@ const TopBar = ({ raceTime }) => {
     // Refresh weather every 5 minutes
     const interval = setInterval(fetchWeather, 5 * 60 * 1000);
 
-    return () => clearInterval(interval);
+    // Update local time every second
+    const timeInterval = setInterval(() => {
+      setLocalTime(new Date().toLocaleTimeString([], { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: false 
+      }));
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(timeInterval);
+    };
   }, []);
 
   return (
@@ -55,7 +69,7 @@ const TopBar = ({ raceTime }) => {
         <div className="race-title">Abu Dhabi GP 2025</div>
         <div className="race-session" style={{ background: '#ffb800' }}>Race</div>
       </div>
-      <div className="race-timer">{raceTime}</div>
+      <div className="race-timer">{localTime}</div>
       <div className="race-widgets">
         <div className="widget" title="Track Temperature">
           <div className="widget-label">TRC</div>
@@ -75,8 +89,8 @@ const TopBar = ({ raceTime }) => {
         </div>
       </div>
       <div className="lap-counter">
-        <span className="lap-label">TIME</span>
-        <span className="lap-number">45:00</span>
+        <span className="lap-label">SESSION</span>
+        <span className="lap-number">{raceTime}</span>
       </div>
       <div className="track-status" style={{ background: '#00d448' }} title={`Weather: ${weather.conditions || 'Clear'}`}>
         Track Clear

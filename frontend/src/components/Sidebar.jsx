@@ -1,11 +1,14 @@
 const Sidebar = ({ currentView, setCurrentView, collapsed, setCollapsed }) => {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: '📊', section: 'main' },
+    { id: 'analytics', label: 'Strategy Analytics', icon: '📈', section: 'main' },
+    { id: 'race-analysis', label: 'Race Analysis', icon: '🏎️', section: 'main' },
     { id: 'ai-predictions', label: 'AI Race Predictions', icon: '🤖', section: 'main' },
-    { id: 'track-map', label: 'Live Track Map', icon: '🗺️', section: 'main' },
+    { id: 'strategy-engine', label: 'Strategy Engine', icon: '🎯', section: 'main' },
+    { id: 'live-replay', label: 'Live/Replay Track', icon: '🎬', section: 'main' },
     { id: 'race-control', label: 'Race Control', icon: '🏁', section: 'main' },
     { id: 'tire-degradation', label: 'Tire Degradation', icon: '🔴', section: 'tools' },
-    { id: 'strategy-simulator', label: 'Strategy Simulator', icon: '🎯', section: 'tools' },
+    { id: 'strategy-simulator', label: 'Strategy Simulator', icon: '⚙️', section: 'tools' },
     { id: 'strategy-comparison', label: 'Strategy Comparison', icon: '⚡', section: 'tools' },
     { id: 'standings', label: 'Standings', icon: '🏆', section: 'info' },
     { id: 'weather', label: 'Weather', icon: '🌤️', section: 'info' },

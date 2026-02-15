@@ -1,9 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import drivers2025 from '../data/drivers2025';
 
 const StrategyComparison = () => {
   const [selectedDrivers, setSelectedDrivers] = useState(['VER', 'NOR', 'PIA']);
   const [raceLaps, setRaceLaps] = useState(57);
+  const [historicalData, setHistoricalData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
+  const [predictiveAnalytics, setPredictiveAnalytics] = useState(null);
+  
+  // Fetch historical and weather data for enhanced analysis
+  useEffect(() => {
+    fetchHistoricalData();
+    fetchWeatherData();
+  }, []);
+  
+  const fetchHistoricalData = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/analysis/race-telemetry');
+      const data = await response.json();
+      if (data.success) {
+        setHistoricalData(data);
+      }
+    } catch (error) {
+      console.error('Error fetching historical data:', error);
+    }
+  };
+  
+  const fetchWeatherData = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/live/weather');
+      const data = await response.json();
+      if (data.success) {
+        setWeatherData(data.display);
+      }
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+  };
   
   // Initialize configs for all drivers
   const initializeDriverConfigs = () => {
@@ -49,7 +82,7 @@ const StrategyComparison = () => {
     }));
   };
 
-  // Calculate race simulation based on strategy
+  // Calculate race simulation based on strategy with predictive analytics
   const calculateRaceStrategy = () => {
     setIsCalculating(true);
     
@@ -58,11 +91,24 @@ const StrategyComparison = () => {
         const config = driverConfigs[code] || {};
         const driver = drivers2025.find(d => d.code === code);
         
+        // Get historical performance for this driver if available
+        const historicalPerformance = historicalData?.drivers.find(d => d.code === code);
+        const historicalAvgLap = historicalPerformance?.avgLapTime || config.baseLapTime;
+        
+        // Weather impact factors
+        const weatherImpact = weatherData ? {
+          trackTemp: weatherData.track_temp || 42,
+          airTemp: weatherData.air_temp || 31,
+          humidity: weatherData.humidity || 35,
+          // High track temp increases tire degradation
+          tempMultiplier: 1 + ((weatherData.track_temp - 35) * 0.01)
+        } : { tempMultiplier: 1 };
+        
         // Tyre compound performance multipliers
         const tyrePerf = {
-          'SOFT': { speed: 1.05, degradation: 0.08, life: 20 },
-          'MEDIUM': { speed: 1.0, degradation: 0.05, life: 30 },
-          'HARD': { speed: 0.96, degradation: 0.03, life: 40 },
+          'SOFT': { speed: 1.05, degradation: 0.08 * weatherImpact.tempMultiplier, life: 20 },
+          'MEDIUM': { speed: 1.0, degradation: 0.05 * weatherImpact.tempMultiplier, life: 30 },
+          'HARD': { speed: 0.96, degradation: 0.03 * weatherImpact.tempMultiplier, life: 40 },
         };
 
         // Calculate stint times
@@ -76,13 +122,16 @@ const StrategyComparison = () => {
           'MEDIUM': 0.98,
           'HIGH': 0.95,
         }[config.riskLevel] || 1.0;
+        
+        // Use historical data for base lap time if available
+        const effectiveBaseLap = historicalPerformance ? historicalAvgLap : config.baseLapTime;
 
         // Calculate stint 1
         const compound1 = tyrePerf[config.compound1];
         let stint1Time = 0;
         for (let lap = 0; lap < stint1Laps; lap++) {
           const degradation = 1 + (lap * compound1.degradation);
-          stint1Time += config.baseLapTime * degradation * compound1.speed * riskMultiplier;
+          stint1Time += effectiveBaseLap * degradation * compound1.speed * riskMultiplier;
         }
 
         // Calculate stint 2 (with pit stop)
@@ -90,7 +139,7 @@ const StrategyComparison = () => {
         let stint2Time = 22; // Pit stop time
         for (let lap = 0; lap < stint2Laps; lap++) {
           const degradation = 1 + (lap * compound2.degradation);
-          stint2Time += config.baseLapTime * degradation * compound2.speed * riskMultiplier;
+          stint2Time += effectiveBaseLap * degradation * compound2.speed * riskMultiplier;
         }
 
         // Calculate stint 3 (with pit stop)
@@ -98,7 +147,7 @@ const StrategyComparison = () => {
         let stint3Time = 22; // Pit stop time
         for (let lap = 0; lap < stint3Laps; lap++) {
           const degradation = 1 + (lap * compound3.degradation);
-          stint3Time += config.baseLapTime * degradation * compound3.speed * riskMultiplier;
+          stint3Time += effectiveBaseLap * degradation * compound3.speed * riskMultiplier;
         }
 
         // Fuel effect (lighter = faster)
@@ -106,6 +155,18 @@ const StrategyComparison = () => {
         
         const totalTime = stint1Time + stint2Time + stint3Time + fuelEffect;
         const avgLapTime = totalTime / raceLaps;
+        
+        // Predictive analytics - calculate probability of success
+        const consistency = historicalPerformance?.stdDeviation || 0.5;
+        const successProbability = Math.max(0.4, Math.min(0.95, 0.85 - (consistency * 0.2) - ((config.riskLevel === 'HIGH' ? 0.15 : 0) + (config.riskLevel === 'LOW' ? 0.05 : 0))));
+        
+        // Calculate risk assessment
+        const riskScore = {
+          tireDegradation: compound1.degradation > 0.06 ? 'HIGH' : compound1.degradation > 0.04 ? 'MEDIUM' : 'LOW',
+          weatherVulnerability: weatherData?.track_temp > 45 ? 'HIGH' : weatherData?.track_temp > 40 ? 'MEDIUM' : 'LOW',
+          strategyRisk: config.riskLevel,
+          overallRisk: config.riskLevel
+        };
 
         return {
           code: code,
@@ -119,12 +180,26 @@ const StrategyComparison = () => {
           pitStops: 2,
           strategy: `${config.compound1[0]}-${config.compound2[0]}-${config.compound2[0]}`,
           predictedPosition: 0,
+          successProbability: successProbability,
+          riskAssessment: riskScore,
+          weatherImpact: weatherImpact,
+          historicalBaseline: historicalPerformance ? 'Available' : 'Estimated'
         };
       });
 
       // Sort by total time and assign positions
       results.sort((a, b) => a.totalTime - b.totalTime);
       results.forEach((r, i) => r.predictedPosition = i + 1);
+      
+      // Generate predictive analytics summary
+      const analytics = {
+        optimalStrategy: results[0]?.code,
+        averageSuccessRate: (results.reduce((sum, r) => sum + r.successProbability, 0) / results.length * 100).toFixed(1),
+        highRiskStrategies: results.filter(r => r.riskAssessment.overallRisk === 'HIGH').length,
+        weatherImpactLevel: weatherData?.track_temp > 45 ? 'SEVERE' : weatherData?.track_temp > 40 ? 'MODERATE' : 'LOW',
+        recommendedApproach: results[0]?.riskAssessment.overallRisk === 'HIGH' ? 'Aggressive (High Risk)' : results[0]?.riskAssessment.overallRisk === 'LOW' ? 'Conservative' : 'Balanced'
+      };
+      setPredictiveAnalytics(analytics);
 
       setComparisonResults(results);
       setIsCalculating(false);
@@ -143,11 +218,108 @@ const StrategyComparison = () => {
     <div className="card">
       <div className="card-header">
         <div>
-          <div className="card-title">Strategy Comparison Tool</div>
-          <div className="card-subtitle">Compare different tyre strategies and race parameters</div>
+          <div className="card-title">Enhanced Strategy Comparison with Predictive Analytics</div>
+          <div className="card-subtitle">Compare strategies with AI-powered risk assessment and historical data analysis</div>
         </div>
       </div>
       <div className="card-body">
+        
+        {/* Predictive Analytics Summary */}
+        {predictiveAnalytics && (
+          <div style={{ 
+            marginBottom: '1.5rem',
+            padding: '1rem',
+            background: 'var(--secondary-bg)',
+            borderRadius: '8px',
+            border: '2px solid var(--ferrari-yellow)'
+          }}>
+            <div style={{ fontSize: '1rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--ferrari-yellow)' }}>
+              🔮 Predictive Analytics Summary
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem' }}>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
+                  OPTIMAL STRATEGY
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#00d448' }}>
+                  {predictiveAnalytics.optimalStrategy}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
+                  AVG SUCCESS RATE
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 'var(--ferrari-yellow)' }}>
+                  {predictiveAnalytics.averageSuccessRate}%
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
+                  HIGH RISK STRATEGIES
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#ff6b6b' }}>
+                  {predictiveAnalytics.highRiskStrategies}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
+                  WEATHER IMPACT
+                </div>
+                <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: 
+                  predictiveAnalytics.weatherImpactLevel === 'SEVERE' ? '#ff0000' :
+                  predictiveAnalytics.weatherImpactLevel === 'MODERATE' ? '#ffaa00' : '#00d448'
+                }}>
+                  {predictiveAnalytics.weatherImpactLevel}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>
+                  RECOMMENDED APPROACH
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>
+                  {predictiveAnalytics.recommendedApproach}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Weather Context */}
+        {weatherData && (
+          <div style={{ 
+            marginBottom: '1.5rem',
+            padding: '1rem',
+            background: 'var(--secondary-bg)',
+            borderRadius: '8px',
+            display: 'flex',
+            justifyContent: 'space-around'
+          }}>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>TRACK TEMP</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 'bold', color: weatherData.track_temp > 45 ? '#ff0000' : 'var(--text-primary)' }}>
+                {weatherData.track_temp}°C
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>AIR TEMP</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                {weatherData.air_temp}°C
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>HUMIDITY</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                {weatherData.humidity}%
+              </div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>CONDITIONS</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+                {weatherData.conditions}
+              </div>
+            </div>
+          </div>
+        )}
         {/* Driver Selection */}
         <div style={{ marginBottom: '1.5rem' }}>
 <label className="form-label">Select Drivers to Compare (max 10)</label>

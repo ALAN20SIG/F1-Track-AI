@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backend Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .test-result {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ccc;
+        }
+        .success { background: #1a3a1a; border-color: #0f0; }
+        .error { background: #3a1a1a; border-color: #f00; }
+        .testing { background: #3a3a1a; border-color: #ff0; }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: #dc2626;
+            color: #fbbf24;
+            border: 2px solid #fbbf24;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #b91c1c;
+        }
+        pre {
+            background: #0a0a0a;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Backend Connection Test</h1>
+    <p>This tests if the frontend can connect to the backend API.</p>
+    
+    <button onclick="runTests()">Run All Tests</button>
+    
+    <div id="results"></div>
+    
+    <script>
+        const resultsDiv = document.getElementById('results');
+        
+        async function testEndpoint(name, url, timeout = 10000) {
+            const resultId = 'result-' + Date.now();
+            resultsDiv.innerHTML += `<div id="${resultId}" class="test-result testing">
+                ⏳ Testing: ${name}<br>
+                URL: ${url}<br>
+                Timeout: ${timeout}ms
+            </div>`;
+            
+            const startTime = Date.now();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+            
+            try {
+                const response = await fetch(url, {
+                    signal: controller.signal,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                clearTimeout(timeoutId);
+                const elapsed = Date.now() - startTime;
+                
+                const data = await response.json();
+                
+                document.getElementById(resultId).className = 'test-result success';
+                document.getElementById(resultId).innerHTML = `
+                    ✅ ${name}<br>
+                    Status: ${response.status}<br>
+                    Time: ${elapsed}ms<br>
+                    <pre>${JSON.stringify(data, null, 2).substring(0, 200)}...</pre>
+                `;
+            } catch (error) {
+                clearTimeout(timeoutId);
+                const elapsed = Date.now() - startTime;
+                
+                document.getElementById(resultId).className = 'test-result error';
+                document.getElementById(resultId).innerHTML = `
+                    ❌ ${name}<br>
+                    Error: ${error.message}<br>
+                    Error Type: ${error.name}<br>
+                    Time: ${elapsed}ms<br>
+                    <strong>This indicates: ${
+                        error.name === 'AbortError' ? 'Request timed out - backend too slow' :
+                        error.message.includes('Failed to fetch') ? 'Cannot connect to backend (CORS or network issue)' :
+                        'Unknown error'
+                    }</strong>
+                `;
+            }
+        }
+        
+        async function runTests() {
+            resultsDiv.innerHTML = '<h2>Running Tests...</h2>';
+            
+            // Test 1: Session info (fast endpoint)
+            await testEndpoint(
+                'Session Info (Fast)',
+                'http://localhost:8000/api/session/info',
+                5000
+            );
+            
+            // Test 2: Drivers (database endpoint)
+            await testEndpoint(
+                'Drivers List (Database)',
+                'http://localhost:8000/api/db/drivers',
+                5000
+            );
+            
+            // Test 3: Strategy suggestions (slow endpoint)
+            await testEndpoint(
+                'Strategy Suggestions (VER)',
+                'http://localhost:8000/api/analysis/strategy-suggestions/VER?target_position=1',
+                30000
+            );
+            
+            resultsDiv.innerHTML += '<div class="test-result success"><h2>✅ Tests Complete!</h2></div>';
+        }
+        
+        // Auto-run on load
+        window.onload = () => {
+            setTimeout(() => {
+                console.log('Auto-running tests in 1 second...');
+                runTests();
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

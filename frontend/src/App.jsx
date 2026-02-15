@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import TopBar from './components/TopBar';
 import Dashboard from './components/Dashboard';
-import TrackMap from './components/TrackMap';
 import StrategySimulator from './components/StrategySimulator';
 import StrategyComparison from './components/StrategyComparison';
 import Standings from './components/Standings';
@@ -11,6 +10,10 @@ import Schedule from './components/Schedule';
 import RaceControl from './components/RaceControl';
 import RacePrediction from './components/RacePrediction';
 import TireDegradation from './components/TireDegradation';
+import StrategyAnalytics from './components/StrategyAnalytics';
+import RaceAnalysis from './components/RaceAnalysis';
+import StrategyEngine from './components/StrategyEngine';
+import LiveReplayTrack from './components/LiveReplayTrack';
 import './index.css';
 
 function App() {
@@ -44,12 +47,24 @@ function App() {
       );
     }
     
+    if (currentView === 'analytics') {
+      return <StrategyAnalytics />;
+    }
+    
     if (currentView === 'ai-predictions') {
       return <RacePrediction />;
     }
     
-    if (currentView === 'track-map') {
-      return <TrackMap />;
+    if (currentView === 'race-analysis') {
+      return <RaceAnalysis />;
+    }
+    
+    if (currentView === 'strategy-engine') {
+      return <StrategyEngine />;
+    }
+    
+    if (currentView === 'live-replay' || currentView === 'track-map') {
+      return <LiveReplayTrack />;
     }
     
     if (currentView === 'tire-degradation') {

@@ -648,6 +648,12 @@ body {
   color: var(--text-muted);
 }
 
+.sectors-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* Track Map */
 .track-map-container {
   display: flex;
