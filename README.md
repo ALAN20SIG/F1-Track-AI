@@ -111,21 +111,26 @@ Interactive Visualization Dashboard
 
 ## 📷 Architecture Diagram
 
-
-```markdown
 ![Architecture](images/archi.png)
+---
 
-📊 Dashboard Preview
+## 📊 Dashboard Preview
 ![Race Prediction](images/1.png)
 ![Monte Carlo Simulation](images/2.png)
 ![Tyre Degradation](images/3.png)
-![Strategy Analysis](images/4.png)
+![Dashboard](images/4.png)
+![Strategy Analysis](images/5.png)
+![Strategy Analysis](images/6.png)
+![Strategy Analysis](images/7.png)
+![Strategy Analysis](images/8.png)
+![Strategy Analysis](images/9.png)
 
-🎥 Working Demo
+---
+## 🎥 Working Demo
 [▶ Watch Live Demo](https://your-demo-link.com)
 
-
-🧠 Machine Learning Stack
+---
+## 🧠 Machine Learning Stack
 | Module       | Model               |
 | ------------ | ------------------- |
 | Race Outcome | Gradient Boosting   |
@@ -212,5 +217,6 @@ If you'd like, I can now give you:
 - Or a version optimized to impress recruiters & hiring managers**
 
 Tell me which direction you want 🚀
+
 
 
