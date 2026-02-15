@@ -93,17 +93,17 @@ Built using **Streamlit / Dash**
 ## 🏗️ System Architecture
 
 Data Ingestion Layer
-↓
+        ↓
 Preprocessing & Feature Engineering
-↓
+        ↓
 Multi-Model ML Engine
-↓
+        ↓
 Strategy Optimization Engine
-↓
+        ↓
 Monte Carlo Simulation Layer
-↓
+        ↓
 Race & Strategy Analysis Modules
-↓
+        ↓
 Interactive Visualization Dashboard
 
 
@@ -111,10 +111,9 @@ Interactive Visualization Dashboard
 
 ## 📷 Architecture Diagram
 
-_Add your image inside an `/images` folder_
 
 ```markdown
-![Architecture](images/architecture.png)
+![Architecture](image/archi.png)
 
 📊 Dashboard Preview
 ![Race Prediction](images/dashboard_prediction.png)
@@ -125,6 +124,7 @@ _Add your image inside an `/images` folder_
 🎥 Working Demo
 [▶ Watch Live Demo](https://your-demo-link.com)
 
+
 🧠 Machine Learning Stack
 | Module       | Model               |
 | ------------ | ------------------- |
@@ -132,6 +132,7 @@ _Add your image inside an `/images` folder_
 | Tyre Wear    | Random Forest       |
 | Simulation   | Monte Carlo         |
 | Time-Series  | LSTM (Future Scope) |
+
 
 ⚙️ Tech Stack
 
@@ -143,21 +144,26 @@ _Add your image inside an `/images` folder_
 -Weather APIs
 -Streamlit / Dash
 
+
 📦 Installation
 1️⃣ Clone Repository
 git clone https://github.com/ALAN20SIG/F1-Track-AI.git
 cd F1-Track-AI
+
 
 2️⃣ Create Virtual Environment
 python -m venv venv
 source venv/bin/activate     # Mac/Linux
 venv\Scripts\activate        # Windows
 
+
 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
+
 4️⃣ Run Application
 streamlit run app.py
+
 
 📈 Business Impact
 | Traditional Approach   | F1-Track-AI              |
@@ -206,3 +212,4 @@ If you'd like, I can now give you:
 - Or a version optimized to impress recruiters & hiring managers**
 
 Tell me which direction you want 🚀
+
