@@ -113,7 +113,7 @@ Interactive Visualization Dashboard
 
 
 ```markdown
-![Architecture](https://raw.githubusercontent.com/ALAN20SIG/F1-Track-AI/main/images/archi.png)
+![Architecture](images/archi.png)
 
 📊 Dashboard Preview
 ![Race Prediction](images/1.png)
