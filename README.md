@@ -113,13 +113,13 @@ Interactive Visualization Dashboard
 
 
 ```markdown
-![Architecture](image/archi.png)
+![Architecture](https://raw.githubusercontent.com/ALAN20SIG/F1-Track-AI/main/images/archi.png)
 
 📊 Dashboard Preview
-![Race Prediction](images/dashboard_prediction.png)
-![Monte Carlo Simulation](images/simulation.png)
-![Tyre Degradation](images/tyre_degradation.png)
-![Strategy Analysis](images/strategy_analysis.png)
+![Race Prediction](images/1.png)
+![Monte Carlo Simulation](images/2.png)
+![Tyre Degradation](images/3.png)
+![Strategy Analysis](images/4.png)
 
 🎥 Working Demo
 [▶ Watch Live Demo](https://your-demo-link.com)
@@ -212,4 +212,5 @@ If you'd like, I can now give you:
 - Or a version optimized to impress recruiters & hiring managers**
 
 Tell me which direction you want 🚀
+
 
