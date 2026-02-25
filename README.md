@@ -142,9 +142,9 @@ Built using **HTML / CSS**
 ![Strategy Analysis](images/9.png)
 
 ---
-## 🎥 Working Demo
-[▶ Watch Live Demo](https://your-demo-link.com)
+## 🎥 Live Working Demo
 
+[![Watch the Demo](https://img.youtube.com/vi/2iRaSCzZ2ck/maxresdefault.jpg)](https://youtu.be/2iRaSCzZ2ck)
 ---
 ## 🧠 Machine Learning Stack
 | Module       | Model               |
@@ -233,6 +233,7 @@ If you'd like, I can now give you:
 - Or a version optimized to impress recruiters & hiring managers**
 
 Tell me which direction you want 🚀
+
 
 
 
