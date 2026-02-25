@@ -81,7 +81,7 @@ Post-simulation evaluation system:
 ---
 
 ### 🖥️ Interactive Dashboard
-Built using **Streamlit / Dash**
+Built using **HTML / CSS**
 
 - Live prediction visualization  
 - Degradation curve graphs  
@@ -92,19 +92,35 @@ Built using **Streamlit / Dash**
 
 ## 🏗️ System Architecture
 
-Data Ingestion Layer
-        ↓
-Preprocessing & Feature Engineering
-        ↓
-Multi-Model ML Engine
-        ↓
-Strategy Optimization Engine
-        ↓
-Monte Carlo Simulation Layer
-        ↓
-Race & Strategy Analysis Modules
-        ↓
-Interactive Visualization Dashboard
+```
+┌─────────────────────────────┐
+│     Data Ingestion Layer    │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Preprocessing & Feature Eng │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│      Multi-Model ML Engine  │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Strategy Optimization Engine│
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Monte Carlo Simulation Layer│
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Race & Strategy Analysis    │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Interactive Dashboard Layer │
+└─────────────────────────────┘
+```
 
 
 ---
@@ -217,6 +233,7 @@ If you'd like, I can now give you:
 - Or a version optimized to impress recruiters & hiring managers**
 
 Tell me which direction you want 🚀
+
 
 
 
