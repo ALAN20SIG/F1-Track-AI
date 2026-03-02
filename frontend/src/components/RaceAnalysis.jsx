@@ -1,5 +1,29 @@
 import { useState, useEffect } from 'react';
 
+// Distinct color palette for driver comparison charts
+const DRIVER_COLORS = [
+  '#FF0000', // Red
+  '#00FF00', // Green
+  '#0000FF', // Blue
+  '#FFFF00', // Yellow
+  '#FF00FF', // Magenta
+  '#00FFFF', // Cyan
+  '#FFA500', // Orange
+  '#800080', // Purple
+  '#008000', // Dark Green
+  '#000080', // Navy
+  '#808000', // Olive
+  '#800000', // Maroon
+  '#008080', // Teal
+  '#C0C0C0', // Silver
+  '#808080', // Gray
+  '#FF69B4', // Hot Pink
+  '#32CD32', // Lime Green
+  '#1E90FF', // Dodger Blue
+  '#FFD700', // Gold
+  '#FF4500'  // Orange Red
+];
+
 const RaceAnalysis = () => {
   const [telemetryData, setTelemetryData] = useState(null);
   const [selectedDriver, setSelectedDriver] = useState(null);
@@ -501,30 +525,43 @@ const RaceAnalysis = () => {
                 gap: '0.5rem',
                 marginBottom: '1.5rem'
               }}>
-                {telemetryData?.drivers.slice(0, 12).map(driver => (
-                  <div
-                    key={driver.code}
-                    onClick={() => toggleDriverSelection(driver.code)}
-                    style={{
-                      padding: '0.75rem',
-                      background: selectedDrivers.includes(driver.code) 
-                        ? `linear-gradient(135deg, ${driver.teamColor}, ${driver.teamColor}80)`
-                        : 'var(--secondary-bg)',
-                      border: `2px solid ${selectedDrivers.includes(driver.code) ? 'var(--ferrari-yellow)' : 'transparent'}`,
-                      borderRadius: '8px',
-                      cursor: 'pointer',
-                      textAlign: 'center',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    <div style={{ fontWeight: 'bold', fontSize: '1.1rem', color: driver.teamColor }}>
-                      {driver.code}
+                {telemetryData?.drivers.slice(0, 12).map((driver, idx) => {
+                  const selectionIndex = selectedDrivers.indexOf(driver.code);
+                  const isSelected = selectionIndex !== -1;
+                  const selectionColor = isSelected ? DRIVER_COLORS[selectionIndex % DRIVER_COLORS.length] : null;
+                  
+                  return (
+                    <div
+                      key={driver.code}
+                      onClick={() => toggleDriverSelection(driver.code)}
+                      style={{
+                        padding: '0.75rem',
+                        background: isSelected 
+                          ? `linear-gradient(135deg, ${selectionColor}, ${selectionColor}80)`
+                          : 'var(--secondary-bg)',
+                        border: `3px solid ${isSelected ? selectionColor : 'transparent'}`,
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        textAlign: 'center',
+                        transition: 'all 0.2s',
+                        boxShadow: isSelected ? `0 0 10px ${selectionColor}50` : 'none'
+                      }}
+                    >
+                      <div style={{ 
+                        fontWeight: 'bold', 
+                        fontSize: '1.2rem', 
+                        color: isSelected ? '#fff' : driver.teamColor,
+                        textShadow: isSelected ? '0 0 4px rgba(0,0,0,0.5)' : 'none'
+                      }}>
+                        {isSelected && <span style={{ marginRight: '4px' }}>{selectionIndex + 1}.</span>}
+                        {driver.code}
+                      </div>
+                      <div style={{ fontSize: '0.75rem', color: isSelected ? '#ddd' : 'var(--text-muted)', marginTop: '0.25rem' }}>
+                        {formatTime(driver.fastestLapTime)}
+                      </div>
                     </div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-                      {formatTime(driver.fastestLapTime)}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Comparison Chart */}
@@ -557,6 +594,9 @@ const RaceAnalysis = () => {
                         const driver = getDriverData(code);
                         if (!driver || !driver.lapTimes || driver.lapTimes.length === 0) return null;
                         
+                        // Use distinct color from palette based on driver index
+                        const driverColor = DRIVER_COLORS[driverIdx % DRIVER_COLORS.length];
+                        
                         const allTimes = selectedDrivers.flatMap(c => getDriverData(c)?.lapTimes || []);
                         const minTime = Math.min(...allTimes);
                         const maxTime = Math.max(...allTimes);
@@ -573,7 +613,7 @@ const RaceAnalysis = () => {
                                 return `${x},${y}`;
                               }).join(' ')}
                               fill="none"
-                              stroke={driver.teamColor}
+                              stroke={driverColor}
                               strokeWidth="3"
                               opacity="0.9"
                             />
@@ -587,7 +627,7 @@ const RaceAnalysis = () => {
                                   cx={x}
                                   cy={y}
                                   r="4"
-                                  fill={driver.teamColor}
+                                  fill={driverColor}
                                   opacity="0.8"
                                 />
                               );
@@ -602,17 +642,24 @@ const RaceAnalysis = () => {
                       position: 'absolute', 
                       top: '1rem', 
                       right: '1rem',
-                      background: 'rgba(0,0,0,0.7)',
+                      background: 'rgba(0,0,0,0.8)',
                       padding: '0.75rem',
                       borderRadius: '8px',
-                      border: '1px solid var(--border-color)'
+                      border: '1px solid var(--ferrari-yellow)',
+                      maxHeight: '200px',
+                      overflowY: 'auto'
                     }}>
-                      {selectedDrivers.map(code => {
-                        const driver = getDriverData(code);
+                      {selectedDrivers.map((code, idx) => {
+                        const driverColor = DRIVER_COLORS[idx % DRIVER_COLORS.length];
                         return (
-                          <div key={code} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                            <div style={{ width: '20px', height: '3px', background: driver?.teamColor }}></div>
-                            <span style={{ fontSize: '0.85rem' }}>{code}</span>
+                          <div key={code} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+                            <div style={{ 
+                              width: '20px', 
+                              height: '4px', 
+                              background: driverColor,
+                              borderRadius: '2px'
+                            }}></div>
+                            <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#fff' }}>{code}</span>
                           </div>
                         );
                       })}

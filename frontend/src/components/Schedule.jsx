@@ -1,29 +1,29 @@
 const Schedule = () => {
-  const races2025 = [
-    { round: 1, name: 'Australian Grand Prix', circuit: 'Albert Park Circuit', location: 'Melbourne', country: 'Australia', date: 'Mar 16', status: 'completed', winner: 'NOR' },
-    { round: 2, name: 'Chinese Grand Prix', circuit: 'Shanghai International Circuit', location: 'Shanghai', country: 'China', date: 'Mar 23', status: 'completed', winner: 'PIA' },
-    { round: 3, name: 'Japanese Grand Prix', circuit: 'Suzuka Circuit', location: 'Suzuka', country: 'Japan', date: 'Apr 6', status: 'completed', winner: 'VER' },
-    { round: 4, name: 'Bahrain Grand Prix', circuit: 'Bahrain International Circuit', location: 'Sakhir', country: 'Bahrain', date: 'Apr 13', status: 'completed', winner: 'PIA' },
-    { round: 5, name: 'Saudi Arabian Grand Prix', circuit: 'Jeddah Corniche Circuit', location: 'Jeddah', country: 'Saudi Arabia', date: 'Apr 20', status: 'completed', winner: 'PIA' },
-    { round: 6, name: 'Miami Grand Prix', circuit: 'Miami International Autodrome', location: 'Miami', country: 'USA', date: 'May 4', status: 'completed', winner: 'PIA' },
-    { round: 7, name: 'Emilia Romagna Grand Prix', circuit: 'Autodromo Enzo e Dino Ferrari', location: 'Imola', country: 'Italy', date: 'May 18', status: 'completed', winner: 'VER' },
-    { round: 8, name: 'Monaco Grand Prix', circuit: 'Circuit de Monaco', location: 'Monte Carlo', country: 'Monaco', date: 'May 25', status: 'completed', winner: 'NOR' },
-    { round: 9, name: 'Spanish Grand Prix', circuit: 'Circuit de Barcelona-Catalunya', location: 'Barcelona', country: 'Spain', date: 'Jun 1', status: 'completed', winner: 'PIA' },
-    { round: 10, name: 'Canadian Grand Prix', circuit: 'Circuit Gilles Villeneuve', location: 'Montreal', country: 'Canada', date: 'Jun 15', status: 'completed', winner: 'RUS' },
-    { round: 11, name: 'Austrian Grand Prix', circuit: 'Red Bull Ring', location: 'Spielberg', country: 'Austria', date: 'Jun 29', status: 'completed', winner: 'NOR' },
-    { round: 12, name: 'British Grand Prix', circuit: 'Silverstone Circuit', location: 'Silverstone', country: 'United Kingdom', date: 'Jul 6', status: 'completed', winner: 'NOR' },
-    { round: 13, name: 'Belgian Grand Prix', circuit: 'Circuit de Spa-Francorchamps', location: 'Spa', country: 'Belgium', date: 'Jul 27', status: 'completed', winner: 'PIA' },
-    { round: 14, name: 'Hungarian Grand Prix', circuit: 'Hungaroring', location: 'Budapest', country: 'Hungary', date: 'Aug 3', status: 'completed', winner: 'NOR' },
-    { round: 15, name: 'Dutch Grand Prix', circuit: 'Circuit Zandvoort', location: 'Zandvoort', country: 'Netherlands', date: 'Aug 31', status: 'completed', winner: 'PIA' },
-    { round: 16, name: 'Italian Grand Prix', circuit: 'Autodromo Nazionale di Monza', location: 'Monza', country: 'Italy', date: 'Sep 7', status: 'completed', winner: 'VER' },
-    { round: 17, name: 'Azerbaijan Grand Prix', circuit: 'Baku City Circuit', location: 'Baku', country: 'Azerbaijan', date: 'Sep 21', status: 'completed', winner: 'VER' },
-    { round: 18, name: 'Singapore Grand Prix', circuit: 'Marina Bay Street Circuit', location: 'Marina Bay', country: 'Singapore', date: 'Oct 5', status: 'completed', winner: 'RUS' },
-    { round: 19, name: 'United States Grand Prix', circuit: 'Circuit of the Americas', location: 'Austin', country: 'USA', date: 'Oct 19', status: 'completed', winner: 'VER' },
-    { round: 20, name: 'Mexico City Grand Prix', circuit: 'Autódromo Hermanos Rodríguez', location: 'Mexico City', country: 'Mexico', date: 'Oct 26', status: 'completed', winner: 'NOR' },
-    { round: 21, name: 'São Paulo Grand Prix', circuit: 'Autódromo José Carlos Pace', location: 'São Paulo', country: 'Brazil', date: 'Nov 9', status: 'completed', winner: 'NOR' },
-    { round: 22, name: 'Las Vegas Grand Prix', circuit: 'Las Vegas Street Circuit', location: 'Las Vegas', country: 'USA', date: 'Nov 22', status: 'completed', winner: 'VER' },
-    { round: 23, name: 'Qatar Grand Prix', circuit: 'Losail International Circuit', location: 'Lusail', country: 'Qatar', date: 'Nov 30', status: 'completed', winner: 'VER' },
-    { round: 24, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', location: 'Abu Dhabi', country: 'UAE', date: 'Dec 7', status: 'upcoming' },
+  const races2026 = [
+    { round: 1, name: 'Australian Grand Prix', circuit: 'Albert Park Circuit', location: 'Melbourne', country: 'Australia', date: 'Mar 06', status: 'upcoming' },
+    { round: 2, name: 'Chinese Grand Prix', circuit: 'Shanghai International Circuit', location: 'Shanghai', country: 'China', date: 'Mar 13', status: 'upcoming' },
+    { round: 3, name: 'Japanese Grand Prix', circuit: 'Suzuka International Racing Course', location: 'Suzuka', country: 'Japan', date: 'Mar 27', status: 'upcoming' },
+    { round: 4, name: 'Bahrain Grand Prix', circuit: 'Bahrain International Circuit', location: 'Manama', country: 'Bahrain', date: 'Apr 10', status: 'upcoming' },
+    { round: 5, name: 'Saudi Arabian Grand Prix', circuit: 'Jeddah Corniche Circuit', location: 'Jeddah', country: 'Saudi Arabia', date: 'Apr 17', status: 'upcoming' },
+    { round: 6, name: 'Miami Grand Prix', circuit: 'Miami International Autodrome', location: 'Miami', country: 'USA', date: 'May 01', status: 'upcoming' },
+    { round: 7, name: 'Canadian Grand Prix', circuit: 'Circuit Gilles Villeneuve', location: 'Montreal', country: 'Canada', date: 'May 22', status: 'upcoming' },
+    { round: 8, name: 'Monaco Grand Prix', circuit: 'Circuit de Monaco', location: 'Monte Carlo', country: 'Monaco', date: 'Jun 05', status: 'upcoming' },
+    { round: 9, name: 'Spanish Grand Prix', circuit: 'Circuit de Barcelona-Catalunya', location: 'Barcelona', country: 'Spain', date: 'Jun 12', status: 'upcoming' },
+    { round: 10, name: 'Austrian Grand Prix', circuit: 'Red Bull Ring', location: 'Spielberg', country: 'Austria', date: 'Jun 26', status: 'upcoming' },
+    { round: 11, name: 'British Grand Prix', circuit: 'Silverstone Circuit', location: 'Silverstone', country: 'United Kingdom', date: 'Jul 03', status: 'upcoming' },
+    { round: 12, name: 'Belgian Grand Prix', circuit: 'Circuit de Spa-Francorchamps', location: 'Spa', country: 'Belgium', date: 'Jul 17', status: 'upcoming' },
+    { round: 13, name: 'Hungarian Grand Prix', circuit: 'Hungaroring', location: 'Budapest', country: 'Hungary', date: 'Jul 24', status: 'upcoming' },
+    { round: 14, name: 'Dutch Grand Prix', circuit: 'Circuit Zandvoort', location: 'Zandvoort', country: 'Netherlands', date: 'Aug 21', status: 'upcoming' },
+    { round: 15, name: 'Italian Grand Prix', circuit: 'Autodromo Nazionale di Monza', location: 'Monza', country: 'Italy', date: 'Sep 04', status: 'upcoming' },
+    { round: 16, name: 'Spanish Grand Prix', circuit: 'Circuit de Montmeló', location: 'Barcelona', country: 'Spain', date: 'Sep 11', status: 'upcoming' },
+    { round: 17, name: 'Azerbaijan Grand Prix', circuit: 'Baku City Circuit', location: 'Baku', country: 'Azerbaijan', date: 'Sep 24', status: 'upcoming' },
+    { round: 18, name: 'Singapore Grand Prix', circuit: 'Marina Bay Street Circuit', location: 'Singapore', country: 'Singapore', date: 'Oct 09', status: 'upcoming' },
+    { round: 19, name: 'United States Grand Prix', circuit: 'Circuit of The Americas', location: 'Austin', country: 'USA', date: 'Oct 23', status: 'upcoming' },
+    { round: 20, name: 'Mexican Grand Prix', circuit: 'Autódromo Hermanos Rodríguez', location: 'Mexico City', country: 'Mexico', date: 'Oct 30', status: 'upcoming' },
+    { round: 21, name: 'Brazilian Grand Prix', circuit: 'Autódromo José Carlos Pace', location: 'São Paulo', country: 'Brazil', date: 'Nov 06', status: 'upcoming' },
+    { round: 22, name: 'Las Vegas Grand Prix', circuit: 'Las Vegas Street Circuit', location: 'Las Vegas', country: 'USA', date: 'Nov 19', status: 'upcoming' },
+    { round: 23, name: 'Qatar Grand Prix', circuit: 'Lusail International Circuit', location: 'Lusail', country: 'Qatar', date: 'Nov 27', status: 'upcoming' },
+    { round: 24, name: 'Abu Dhabi Grand Prix', circuit: 'Yas Marina Circuit', location: 'Abu Dhabi', country: 'UAE', date: 'Dec 04', status: 'upcoming' },
   ];
 
   const getStatusBadge = (status) => {
@@ -39,10 +39,11 @@ const Schedule = () => {
   const getCountryFlag = (country) => {
     const flags = {
       'Australia': '🇦🇺', 'China': '🇨🇳', 'Japan': '🇯🇵', 'Bahrain': '🇧🇭', 
-      'Saudi Arabia': '🇸🇦', 'USA': '🇺🇸', 'Italy': '🇮🇹', 'Monaco': '🇲🇨',
+      'Saudi Arabia': '🇸🇦', 'USA': '🇺🇸', 'United States': '🇺🇸', 'Italy': '🇮🇹', 'Monaco': '🇲🇨',
       'Spain': '🇪🇸', 'Canada': '🇨🇦', 'Austria': '🇦🇹', 'United Kingdom': '🇬🇧',
       'Belgium': '🇧🇪', 'Hungary': '🇭🇺', 'Netherlands': '🇳🇱', 'Azerbaijan': '🇦🇿',
-      'Singapore': '🇸🇬', 'Mexico': '🇲🇽', 'Brazil': '🇧🇷', 'Qatar': '🇶🇦', 'UAE': '🇦🇪'
+      'Singapore': '🇸🇬', 'Mexico': '🇲🇽', 'Brazil': '🇧🇷', 'Qatar': '🇶🇦', 'UAE': '🇦🇪',
+      'United Arab Emirates': '🇦🇪'
     };
     return flags[country] || '🏁';
   };
@@ -51,7 +52,7 @@ const Schedule = () => {
     <div className="card" style={{ height: '100%' }}>
       <div className="card-header">
         <div>
-          <div className="card-title">2025 F1 Calendar</div>
+          <div className="card-title">2026 F1 Calendar</div>
           <div className="card-subtitle">24 Races · 21 Countries</div>
         </div>
       </div>
@@ -64,7 +65,7 @@ const Schedule = () => {
             <div>DATE</div>
             <div>STATUS</div>
           </div>
-          {races2025.map(race => (
+          {races2026.map(race => (
             <div 
               key={race.round} 
               style={{ 

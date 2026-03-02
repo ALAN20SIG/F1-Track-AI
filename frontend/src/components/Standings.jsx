@@ -1,42 +1,45 @@
 import drivers2026, { teams } from '../data/drivers2026';
 
 const Standings = () => {
-  // Driver standings (2025 season - Final Championship Results)
+  // Driver standings (2026 season - Pre-season, all points reset to 0)
   const driverStandings = [
-    { position: 1, driver: 'NOR', points: 423, wins: 7 },
-    { position: 2, driver: 'VER', points: 421, wins: 7 },
-    { position: 3, driver: 'PIA', points: 410, wins: 9 },
-    { position: 4, driver: 'RUS', points: 319, wins: 2 },
-    { position: 5, driver: 'LEC', points: 242, wins: 0 },
-    { position: 6, driver: 'HAM', points: 156, wins: 0 },
-    { position: 7, driver: 'ANT', points: 150, wins: 0 },
-    { position: 8, driver: 'ALB', points: 73, wins: 0 },
-    { position: 9, driver: 'SAI', points: 64, wins: 0 },
-    { position: 10, driver: 'ALO', points: 56, wins: 0 },
-    { position: 11, driver: 'HUL', points: 51, wins: 0 },
-    { position: 12, driver: 'HAD', points: 51, wins: 0 },
-    { position: 13, driver: 'BEA', points: 41, wins: 0 },
-    { position: 14, driver: 'LAW', points: 38, wins: 0 },
-    { position: 15, driver: 'OCO', points: 38, wins: 0 },
-    { position: 16, driver: 'STR', points: 33, wins: 0 },
-    { position: 17, driver: 'TSU', points: 33, wins: 0 },
-    { position: 18, driver: 'GAS', points: 22, wins: 0 },
-    { position: 19, driver: 'BOR', points: 19, wins: 0 },
-    { position: 20, driver: 'COL', points: 0, wins: 0 },
+    { position: 1, driver: 'VER', points: 0, wins: 0 },
+    { position: 2, driver: 'HAD', points: 0, wins: 0 },
+    { position: 3, driver: 'HAM', points: 0, wins: 0 },
+    { position: 4, driver: 'LEC', points: 0, wins: 0 },
+    { position: 5, driver: 'RUS', points: 0, wins: 0 },
+    { position: 6, driver: 'ANT', points: 0, wins: 0 },
+    { position: 7, driver: 'NOR', points: 0, wins: 0 },
+    { position: 8, driver: 'PIA', points: 0, wins: 0 },
+    { position: 9, driver: 'ALB', points: 0, wins: 0 },
+    { position: 10, driver: 'SAI', points: 0, wins: 0 },
+    { position: 11, driver: 'ALO', points: 0, wins: 0 },
+    { position: 12, driver: 'STR', points: 0, wins: 0 },
+    { position: 13, driver: 'GAS', points: 0, wins: 0 },
+    { position: 14, driver: 'COL', points: 0, wins: 0 },
+    { position: 15, driver: 'OCO', points: 0, wins: 0 },
+    { position: 16, driver: 'BEA', points: 0, wins: 0 },
+    { position: 17, driver: 'LAW', points: 0, wins: 0 },
+    { position: 18, driver: 'LIN', points: 0, wins: 0 },
+    { position: 19, driver: 'HUL', points: 0, wins: 0 },
+    { position: 20, driver: 'BOR', points: 0, wins: 0 },
+    { position: 21, driver: 'PER', points: 0, wins: 0 },
+    { position: 22, driver: 'BOT', points: 0, wins: 0 },
   ];
 
-  // Constructor standings (2026 season - Pre-season placeholder)
+  // Constructor standings (2026 season - Pre-season, all points reset to 0)
   const constructorStandings = [
-    { position: 1, team: 'Red Bull Racing', points: 0, wins: 0, color: teams.RED_BULL.color },
-    { position: 2, team: 'Ferrari', points: 0, wins: 0, color: teams.FERRARI.color },
-    { position: 3, team: 'McLaren', points: 0, wins: 0, color: teams.MCLAREN.color },
-    { position: 4, team: 'Mercedes', points: 0, wins: 0, color: teams.MERCEDES.color },
-    { position: 5, team: 'Aston Martin', points: 0, wins: 0, color: teams.ASTON_MARTIN.color },
-    { position: 6, team: 'Williams', points: 0, wins: 0, color: teams.WILLIAMS.color },
-    { position: 7, team: 'Alpine', points: 0, wins: 0, color: teams.ALPINE.color },
-    { position: 8, team: 'Haas F1 Team', points: 0, wins: 0, color: teams.HAAS.color },
-    { position: 9, team: 'RB', points: 0, wins: 0, color: teams.RACING_BULLS.color },
-    { position: 10, team: 'Kick Sauber', points: 0, wins: 0, color: teams.KICK_SAUBER.color },
+    { position: 1, team: 'Oracle Red Bull Racing', points: 0, wins: 0, color: teams.RED_BULL.color },
+    { position: 2, team: 'Scuderia Ferrari', points: 0, wins: 0, color: teams.FERRARI.color },
+    { position: 3, team: 'Mercedes-AMG Petronas', points: 0, wins: 0, color: teams.MERCEDES.color },
+    { position: 4, team: 'McLaren F1 Team', points: 0, wins: 0, color: teams.MCLAREN.color },
+    { position: 5, team: 'Aston Martin Aramco', points: 0, wins: 0, color: teams.ASTON_MARTIN.color },
+    { position: 6, team: 'BWT Alpine F1 Team', points: 0, wins: 0, color: teams.ALPINE.color },
+    { position: 7, team: 'Williams Racing', points: 0, wins: 0, color: teams.WILLIAMS.color },
+    { position: 8, team: 'Visa Cash App RB', points: 0, wins: 0, color: teams.RACING_BULLS.color },
+    { position: 9, team: 'MoneyGram Haas F1 Team', points: 0, wins: 0, color: teams.HAAS.color },
+    { position: 10, team: 'AUDI', points: 0, wins: 0, color: teams.AUDI.color },
+    { position: 11, team: 'CADILLAC', points: 0, wins: 0, color: teams.CADILLAC.color },
   ];
 
   const getDriverInfo = (code) => {
@@ -55,7 +58,9 @@ const Standings = () => {
     'ALO': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png.transform/1col/image.png',
     'ALB': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png.transform/1col/image.png',
     'HUL': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png.transform/1col/image.png',
-    'TSU': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/1col/image.png',
+    'LIN': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ARVLIN01_Arvid_Lindblad/arvlin01.png.transform/1col/image.png',
+    'PER': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png.transform/1col/image.png',
+    'BOT': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/V/VALBOT01_Valtteri_Bottas/valbot01.png.transform/1col/image.png',
     'GAS': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/1col/image.png',
     'OCO': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png.transform/1col/image.png',
     'STR': 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png.transform/1col/image.png',
@@ -72,7 +77,7 @@ const Standings = () => {
       <div className="card-header">
         <div>
           <div className="card-title">Championship Standings</div>
-          <div className="card-subtitle">2025 Season - Final Championship</div>
+          <div className="card-subtitle">2026 Season - Pre-season Standings</div>
         </div>
       </div>
       <div className="card-body" style={{ padding: 0, display: 'flex', gap: '2rem', flexDirection: 'column' }}>

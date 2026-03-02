@@ -245,7 +245,7 @@ class F1LiveDataService:
     def get_track_positions(self) -> List[Dict]:
         """
         Get current track positions for all drivers
-        Returns X, Y coordinates for track visualization
+        Returns X, Y coordinates for track visualization with enhanced data
         """
         if self.session is None:
             return []
@@ -271,65 +271,163 @@ class F1LiveDataService:
                     
                     driver_info = self.session.get_driver(driver)
                     
+                    # Get team info with fallback
+                    team_name = driver_info['TeamName'] if driver_info is not None else 'Unknown'
+                    team_color = driver_info['TeamColor'] if driver_info is not None else '#FFFFFF'
+                    
+                    # Get position from lap data
+                    position = int(latest_lap['Position']) if pd.notna(latest_lap.get('Position')) else 99
+                    
+                    # Get speed with fallback
+                    speed = float(current_pos['Speed']) if 'Speed' in current_pos else 0.0
+                    
+                    # Get distance with fallback
+                    distance = float(current_pos['Distance']) if 'Distance' in current_pos else 0.0
+                    
                     positions.append({
                         'code': driver,
                         'x': float(current_pos['X']),
                         'y': float(current_pos['Y']),
-                        'speed': float(current_pos['Speed']),
-                        'position': int(latest_lap['Position']) if pd.notna(latest_lap['Position']) else 99,
-                        'teamColor': driver_info['TeamColor'] if driver_info else '#FFFFFF',
-                        'distance': float(current_pos['Distance'])
+                        'speed': speed,
+                        'position': position,
+                        'team': team_name,
+                        'teamColor': team_color,
+                        'distance': distance,
+                        'lap': int(latest_lap['LapNumber']) if pd.notna(latest_lap.get('LapNumber')) else 0
                     })
                     
                 except Exception as e:
                     print(f"Error getting position for {driver}: {e}")
                     continue
             
-            # Sort by distance (track position)
-            positions.sort(key=lambda x: x['distance'], reverse=True)
+            # Sort by race position (not distance)
+            positions.sort(key=lambda x: x['position'] if x['position'] > 0 else 999)
             
             return positions
             
         except Exception as e:
             print(f"Error getting track positions: {e}")
+            import traceback
+            traceback.print_exc()
             return []
     
     def get_track_layout(self) -> Dict:
         """
         Get Abu Dhabi circuit layout coordinates
+        Returns accurate track outline from telemetry data
         """
         if self.session is None:
-            return {}
+            return self._generate_fallback_layout()
         
         try:
             # Get circuit info
             circuit_info = self.session.get_circuit_info()
             
-            # Get track outline from any driver's lap
-            driver = self.session.drivers[0]
-            driver_laps = self.laps_data[self.laps_data['Driver'] == driver]
+            # Try to get track outline from any driver's lap
+            if hasattr(self.session, 'drivers') and len(self.session.drivers) > 0:
+                for driver in self.session.drivers:
+                    try:
+                        driver_laps = self.laps_data[self.laps_data['Driver'] == driver]
+                        
+                        if not driver_laps.empty:
+                            fastest_lap = driver_laps.pick_fastest()
+                            telemetry = fastest_lap.get_telemetry()
+                            
+                            if not telemetry.empty and 'X' in telemetry.columns and 'Y' in telemetry.columns:
+                                # Sample to reduce points (aim for ~200 points)
+                                sample_rate = max(1, len(telemetry) // 200)
+                                sampled = telemetry.iloc[::sample_rate]
+                                
+                                x_coords = sampled['X'].tolist()
+                                y_coords = sampled['Y'].tolist()
+                                
+                                if len(x_coords) > 0:
+                                    return {
+                                        'name': 'Yas Marina Circuit',
+                                        'location': 'Abu Dhabi',
+                                        'x': x_coords,
+                                        'y': y_coords,
+                                        'rotation': circuit_info.rotation if hasattr(circuit_info, 'rotation') else 0,
+                                        'source': 'telemetry'
+                                    }
+                    except Exception as driver_error:
+                        continue
             
-            if not driver_laps.empty:
-                fastest_lap = driver_laps.pick_fastest()
-                telemetry = fastest_lap.get_telemetry()
-                
-                # Sample to reduce points
-                sample_rate = max(1, len(telemetry) // 200)
-                sampled = telemetry.iloc[::sample_rate]
-                
-                return {
-                    'name': 'Yas Marina Circuit',
-                    'location': 'Abu Dhabi',
-                    'x': sampled['X'].tolist(),
-                    'y': sampled['Y'].tolist(),
-                    'rotation': circuit_info.rotation if hasattr(circuit_info, 'rotation') else 0
-                }
-            
-            return {}
+            # Fallback to generated layout
+            return self._generate_fallback_layout()
             
         except Exception as e:
             print(f"Error getting track layout: {e}")
-            return {}
+            return self._generate_fallback_layout()
+    
+    def _generate_fallback_layout(self) -> Dict:
+        """Generate Yas Marina Circuit layout from known coordinates"""
+        # Yas Marina Circuit approximate coordinates based on track map
+        # These are normalized coordinates that match FastF1's coordinate system
+        points = []
+        num_points = 150
+        
+        for i in range(num_points):
+            t = (i / num_points) * 2 * 3.14159
+            
+            # Yas Marina is roughly elliptical with modifications
+            # Use parametric equations to approximate the shape
+            
+            # Base ellipse
+            a = 1500  # semi-major axis
+            b = 800   # semi-minor axis
+            
+            x = a * math.cos(t)
+            y = b * math.sin(t)
+            
+            # Add track-specific modifications
+            progress = i / num_points
+            
+            # Sector 1: Long straight with slight curve
+            if 0.0 <= progress < 0.15:
+                x = -1200 + progress * 2000
+                y = 200 + math.sin(progress * 10) * 50
+            # Turn 1-2-3 complex
+            elif 0.15 <= progress < 0.25:
+                local_p = (progress - 0.15) / 0.1
+                x = -1000 + local_p * 400
+                y = 250 + local_p * 300
+            # Through sector 1
+            elif 0.25 <= progress < 0.4:
+                local_p = (progress - 0.25) / 0.15
+                x = -600 + local_p * 200
+                y = 550 - local_p * 100
+            # Hotel section (sector 2)
+            elif 0.4 <= progress < 0.55:
+                local_p = (progress - 0.4) / 0.15
+                x = -400 + local_p * 300
+                y = 450 - local_p * 400
+            # Back straight area
+            elif 0.55 <= progress < 0.7:
+                local_p = (progress - 0.55) / 0.15
+                x = -100 + local_p * 800
+                y = 50 + local_p * 100
+            # Sector 3 corners
+            elif 0.7 <= progress < 0.85:
+                local_p = (progress - 0.7) / 0.15
+                x = 700 - local_p * 400
+                y = 150 + local_p * 200
+            # Final corners to finish
+            else:
+                local_p = (progress - 0.85) / 0.15
+                x = 300 - local_p * 1500
+                y = 350 - local_p * 150
+            
+            points.append({'x': x, 'y': y})
+        
+        return {
+            'name': 'Yas Marina Circuit (Generated)',
+            'location': 'Abu Dhabi',
+            'x': [p['x'] for p in points],
+            'y': [p['y'] for p in points],
+            'rotation': 0,
+            'source': 'generated'
+        }
     
     def _format_timedelta(self, td) -> str:
         """Format timedelta to MM:SS.mmm"""

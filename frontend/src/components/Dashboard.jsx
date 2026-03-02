@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import drivers2025 from '../data/drivers2025';
+import { drivers2026 } from '../data/drivers2026';
 
 const Dashboard = () => {
-  const [drivers, setDrivers] = useState(drivers2025);
+  const [drivers, setDrivers] = useState(drivers2026);
   const [raceStatus, setRaceStatus] = useState('Track Clear');
   const [sessionType, setSessionType] = useState('Race');  // Track current session type
 

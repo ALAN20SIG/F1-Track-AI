@@ -423,6 +423,86 @@ async def get_weather_data():
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.get("/api/race-control")
+async def get_race_control_messages():
+    """
+    Get race control messages and flag status
+    Returns simulated race control data when no live session is active
+    """
+    try:
+        # Try to get from FastF1 service if session is active
+        if f1_service.session is not None:
+            try:
+                # Get race control messages from FastF1
+                session = f1_service.session
+                if hasattr(session, 'race_control_messages'):
+                    rc_messages = session.race_control_messages
+                    if rc_messages is not None and len(rc_messages) > 0:
+                        messages = []
+                        for _, msg in rc_messages.tail(20).iterrows():
+                            messages.append({
+                                "time": str(msg.get('Time', '')),
+                                "flag": msg.get('Flag', 'INFO'),
+                                "message": msg.get('Message', ''),
+                                "severity": msg.get('Severity', 'info'),
+                                "category": categorize_message(msg.get('Message', ''))
+                            })
+                        return {
+                            "success": True,
+                            "messages": messages,
+                            "source": "fastf1",
+                            "timestamp": datetime.now().isoformat()
+                        }
+            except Exception as e:
+                print(f"FastF1 race control fetch failed: {e}")
+        
+        # Return simulated data when no live session
+        return {
+            "success": True,
+            "messages": generate_simulated_race_control_messages(),
+            "source": "simulated",
+            "timestamp": datetime.now().isoformat(),
+            "note": "No active session - showing simulated data"
+        }
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+def categorize_message(message: str) -> str:
+    """Categorize race control message by type"""
+    message_lower = message.lower()
+    if any(word in message_lower for word in ['yellow', 'red', 'safety car', 'vsc', 'clear']):
+        return 'safety'
+    elif any(word in message_lower for word in ['drs', 'blue flag', 'chequered']):
+        return 'timing'
+    elif any(word in message_lower for word in ['penalty', 'investigation', 'warning', 'black']):
+        return 'incidents'
+    elif any(word in message_lower for word in ['rain', 'wet', 'dry', 'weather']):
+        return 'weather'
+    return 'general'
+
+
+def generate_simulated_race_control_messages() -> list:
+    """Generate realistic simulated race control messages"""
+    import random
+    
+    base_messages = [
+        {"flag": "GREEN", "message": "Track Clear - Green Flag", "severity": "info", "category": "safety"},
+        {"flag": "YELLOW", "message": "Yellow Flag - Turn 3", "severity": "warning", "category": "safety"},
+        {"flag": "DRS", "message": "DRS Enabled - All Zones Active", "severity": "info", "category": "timing"},
+        {"flag": "BLUE", "message": "Blue Flag - HAD", "severity": "warning", "category": "timing"},
+        {"flag": "VSC", "message": "Virtual Safety Car - Maintain Delta", "severity": "warning", "category": "safety"},
+        {"flag": "SC", "message": "Safety Car Deployed", "severity": "warning", "category": "safety"},
+        {"flag": "INVESTIGATION", "message": "Incident Involving VER and NOR Under Investigation", "severity": "warning", "category": "incidents"},
+        {"flag": "PENALTY", "message": "HAD - 5s Time Penalty for Track Limits", "severity": "critical", "category": "incidents"},
+    ]
+    
+    # Return 3-5 random messages
+    return random.sample(base_messages, min(random.randint(3, 5), len(base_messages)))
+
+
 # Session Management Endpoints
 
 @app.post("/api/session/refresh")

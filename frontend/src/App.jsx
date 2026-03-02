@@ -13,7 +13,8 @@ import TireDegradation from './components/TireDegradation';
 import StrategyAnalytics from './components/StrategyAnalytics';
 import RaceAnalysis from './components/RaceAnalysis';
 import StrategyEngine from './components/StrategyEngine';
-import LiveReplayTrack from './components/LiveReplayTrack';
+import LiveTrackMap from './components/LiveTrackMap';
+import TeamsGallery from './components/TeamsGallery';
 import './index.css';
 
 function App() {
@@ -63,8 +64,12 @@ function App() {
       return <StrategyEngine />;
     }
     
-    if (currentView === 'live-replay' || currentView === 'track-map') {
-      return <LiveReplayTrack />;
+    if (currentView === 'live-track-map') {
+      return <LiveTrackMap />;
+    }
+    
+    if (currentView === 'teams') {
+      return <TeamsGallery />;
     }
     
     if (currentView === 'tire-degradation') {

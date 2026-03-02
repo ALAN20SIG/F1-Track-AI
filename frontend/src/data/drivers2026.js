@@ -10,8 +10,9 @@ export const teams = {
   ALPINE: { name: "BWT Alpine F1 Team", color: "#FF87BC" },
   WILLIAMS: { name: "Williams Racing", color: "#64C4FF" },
   RACING_BULLS: { name: "Visa Cash App RB", color: "#6692FF" },
-  KICK_SAUBER: { name: "Stake F1 Team Kick Sauber", color: "#52E252" },
-  HAAS: { name: "MoneyGram Haas F1 Team", color: "#B6BABD" }
+  AUDI: { name: "AUDI", color: "#52E252" },
+  HAAS: { name: "MoneyGram Haas F1 Team", color: "#B6BABD" },
+  CADILLAC: { name: "CADILLAC", color: "#C0C0C0" }
 };
 
 export const tyreCompounds = {
@@ -42,11 +43,11 @@ export const drivers2026 = [
   },
   {
     position: 2,
-    code: "TSU",
-    number: 22,
-    firstName: "Yuki",
-    lastName: "Tsunoda",
-    fullName: "Yuki Tsunoda",
+    code: "HAD",
+    number: 6,
+    firstName: "Isack",
+    lastName: "Hadjar",
+    fullName: "Isack Hadjar",
     team: "RED_BULL",
     teamName: teams.RED_BULL.name,
     teamColor: teams.RED_BULL.color,
@@ -55,7 +56,7 @@ export const drivers2026 = [
     lastLapTime: "1:23.567",
     gap: "+0.234",
     interval: "+0.234",
-    country: "JPN"
+    country: "FRA"
   },
   {
     position: 3,
@@ -263,23 +264,6 @@ export const drivers2026 = [
   },
   {
     position: 15,
-    code: "BEA",
-    number: 50,
-    firstName: "Oliver",
-    lastName: "Bearman",
-    fullName: "Oliver Bearman",
-    team: "HAAS",
-    teamName: teams.HAAS.name,
-    teamColor: teams.HAAS.color,
-    tyre: "MEDIUM",
-    tyreAge: 0,
-    lastLapTime: "1:24.890",
-    gap: "+2.901",
-    interval: "+0.112",
-    country: "GBR"
-  },
-  {
-    position: 16,
     code: "OCO",
     number: 31,
     firstName: "Esteban",
@@ -290,10 +274,27 @@ export const drivers2026 = [
     teamColor: teams.HAAS.color,
     tyre: "MEDIUM",
     tyreAge: 0,
+    lastLapTime: "1:24.890",
+    gap: "+2.901",
+    interval: "+0.112",
+    country: "FRA"
+  },
+  {
+    position: 16,
+    code: "BEA",
+    number: 50,
+    firstName: "Oliver",
+    lastName: "Bearman",
+    fullName: "Oliver Bearman",
+    team: "HAAS",
+    teamName: teams.HAAS.name,
+    teamColor: teams.HAAS.color,
+    tyre: "MEDIUM",
+    tyreAge: 0,
     lastLapTime: "1:25.001",
     gap: "+3.123",
     interval: "+0.222",
-    country: "FRA"
+    country: "GBR"
   },
   {
     position: 17,
@@ -314,11 +315,11 @@ export const drivers2026 = [
   },
   {
     position: 18,
-    code: "HAD",
-    number: 6,
-    firstName: "Isack",
-    lastName: "Hadjar",
-    fullName: "Isack Hadjar",
+    code: "LIN",
+    number: 37,
+    firstName: "Arvid",
+    lastName: "Lindblad",
+    fullName: "Arvid Lindblad",
     team: "RACING_BULLS",
     teamName: teams.RACING_BULLS.name,
     teamColor: teams.RACING_BULLS.color,
@@ -327,7 +328,7 @@ export const drivers2026 = [
     lastLapTime: "1:25.223",
     gap: "+3.567",
     interval: "+0.222",
-    country: "FRA"
+    country: "GBR"
   },
   {
     position: 19,
@@ -336,9 +337,9 @@ export const drivers2026 = [
     firstName: "Nico",
     lastName: "Hulkenberg",
     fullName: "Nico Hulkenberg",
-    team: "KICK_SAUBER",
-    teamName: teams.KICK_SAUBER.name,
-    teamColor: teams.KICK_SAUBER.color,
+    team: "AUDI",
+    teamName: teams.AUDI.name,
+    teamColor: teams.AUDI.color,
     tyre: "HARD",
     tyreAge: 0,
     lastLapTime: "1:25.334",
@@ -353,15 +354,49 @@ export const drivers2026 = [
     firstName: "Gabriel",
     lastName: "Bortoleto",
     fullName: "Gabriel Bortoleto",
-    team: "KICK_SAUBER",
-    teamName: teams.KICK_SAUBER.name,
-    teamColor: teams.KICK_SAUBER.color,
+    team: "AUDI",
+    teamName: teams.AUDI.name,
+    teamColor: teams.AUDI.color,
     tyre: "SOFT",
     tyreAge: 0,
     lastLapTime: "1:25.445",
     gap: "+3.901",
     interval: "+0.112",
     country: "BRA"
+  },
+  {
+    position: 21,
+    code: "PER",
+    number: 11,
+    firstName: "Sergio",
+    lastName: "Perez",
+    fullName: "Sergio Perez",
+    team: "CADILLAC",
+    teamName: teams.CADILLAC.name,
+    teamColor: teams.CADILLAC.color,
+    tyre: "MEDIUM",
+    tyreAge: 0,
+    lastLapTime: "1:25.556",
+    gap: "+4.012",
+    interval: "+0.111",
+    country: "MEX"
+  },
+  {
+    position: 22,
+    code: "BOT",
+    number: 77,
+    firstName: "Valtteri",
+    lastName: "Bottas",
+    fullName: "Valtteri Bottas",
+    team: "CADILLAC",
+    teamName: teams.CADILLAC.name,
+    teamColor: teams.CADILLAC.color,
+    tyre: "MEDIUM",
+    tyreAge: 0,
+    lastLapTime: "1:25.667",
+    gap: "+4.123",
+    interval: "+0.111",
+    country: "FIN"
   }
 ];
 
