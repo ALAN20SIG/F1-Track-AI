@@ -81,7 +81,7 @@ Post-simulation evaluation system:
 ---
 
 ### 🖥️ Interactive Dashboard
-Built using **Streamlit / Dash**
+Built using **HTML / CSS**
 
 - Live prediction visualization  
 - Degradation curve graphs  
@@ -92,19 +92,35 @@ Built using **Streamlit / Dash**
 
 ## 🏗️ System Architecture
 
-Data Ingestion Layer
-        ↓
-Preprocessing & Feature Engineering
-        ↓
-Multi-Model ML Engine
-        ↓
-Strategy Optimization Engine
-        ↓
-Monte Carlo Simulation Layer
-        ↓
-Race & Strategy Analysis Modules
-        ↓
-Interactive Visualization Dashboard
+```
+┌─────────────────────────────┐
+│     Data Ingestion Layer    │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Preprocessing & Feature Eng │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│      Multi-Model ML Engine  │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Strategy Optimization Engine│
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Monte Carlo Simulation Layer│
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Race & Strategy Analysis    │
+└───────────────┬─────────────┘
+                ↓
+┌─────────────────────────────┐
+│ Interactive Dashboard Layer │
+└─────────────────────────────┘
+```
 
 
 ---
@@ -126,9 +142,9 @@ Interactive Visualization Dashboard
 ![Strategy Analysis](images/9.png)
 
 ---
-## 🎥 Working Demo
-[▶ Watch Live Demo](https://your-demo-link.com)
+## 🎥 Live Working Demo
 
+[![Watch the Demo](https://img.youtube.com/vi/2iRaSCzZ2ck/maxresdefault.jpg)](https://youtu.be/2iRaSCzZ2ck)
 ---
 ## 🧠 Machine Learning Stack
 | Module       | Model               |
@@ -139,17 +155,16 @@ Interactive Visualization Dashboard
 | Time-Series  | LSTM (Future Scope) |
 
 
-⚙️ Tech Stack
-
--Python
--Scikit-learn
--Pandas / NumPy
--Matplotlib / Plotly
--FastF1 API
--Weather APIs
--Streamlit / Dash
+### ⚙️ Tech Stack
+- Python
+- Scikit-learn
+- Pandas / NumPy
+- Matplotlib / Plotly
+- FastF1 API
+- Weather APIs
 
 
+```
 📦 Installation
 1️⃣ Clone Repository
 git clone https://github.com/ALAN20SIG/F1-Track-AI.git
@@ -168,9 +183,9 @@ pip install -r requirements.txt
 
 4️⃣ Run Application
 streamlit run app.py
+```
 
-
-📈 Business Impact
+### 📈 Business Impact
 | Traditional Approach   | F1-Track-AI              |
 | ---------------------- | ------------------------ |
 | Post-race review       | Real-time intelligence   |
@@ -178,19 +193,19 @@ streamlit run app.py
 | Manual decision making | AI-assisted planning     |
 | Deterministic models   | Probabilistic simulation |
 
-🔮 Future Roadmap
+### 🔮 Future Roadmap
 
--Reinforcement Learning for adaptive strategy
--Transformer-based telemetry forecasting
--Cloud deployment architecture
--Real-time streaming ingestion (Kafka)
--Bayesian uncertainty modeling
+- Reinforcement Learning for adaptive strategy
+- Transformer-based telemetry forecasting
+- Cloud deployment architecture
+- Real-time streaming ingestion (Kafka)
+- Bayesian uncertainty modeling
 
-📜 License
+### 📜 License
 
--MIT License
+- MIT License
 
-⭐ Support
+### ⭐ Support
 
 If you find this project valuable:
 ⭐ Star the repository
@@ -200,23 +215,8 @@ If you find this project valuable:
 
 ---
 
-This version will render cleanly on GitHub with:
 
-- Proper spacing
-- Clean code blocks
-- Table alignment
-- Structured headers
-- No formatting breaks
 
----
-
-If you'd like, I can now give you:
-
-- A version with **GitHub badges (build, Python, license, AI, etc.)**
-- A version that looks like a **real startup SaaS landing page**
-- Or a version optimized to impress recruiters & hiring managers**
-
-Tell me which direction you want 🚀
 
 
 
