@@ -32,6 +32,8 @@ app.add_middleware(
         "http://localhost:3002",
         "http://localhost:5173",  # Vite default port
         "http://127.0.0.1:5173"
+        "https://f1-track-ai-op13.vercel.app"
+
     ],
     allow_credentials=True,
     allow_methods=["*"],
