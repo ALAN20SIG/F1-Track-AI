@@ -120,7 +120,7 @@ const [weather, setWeather] = useState({...});
 
 useEffect(() => {
   const fetchWeather = async () => {
-    const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/weather');
+    const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/weather');
     const data = await response.json();
     setWeather(data.display);
   };
@@ -278,7 +278,7 @@ https://www.formula1.com/en/results/2025/races/1276/abu-dhabi/practice/2
 
 ### **Test the API:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/live/weather
+curl https://f1-track-ai-production.up.railway.app/api/live/weather
 ```
 
 **Expected Output:**
@@ -374,13 +374,13 @@ url = f"http://api.openweathermap.org/data/2.5/weather?q=Monaco,mc&units=metric&
 
 **Check Backend:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/live/weather
+curl https://f1-track-ai-production.up.railway.app/api/live/weather
 ```
 
 **Check Frontend:**
 ```javascript
 // Browser console
-fetch('http://https://f1-track-ai-production.up.railway.app/api/live/weather')
+fetch('https://f1-track-ai-production.up.railway.app/api/live/weather')
   .then(r => r.json())
   .then(console.log)
 ```

@@ -37,7 +37,7 @@ This will verify all new endpoints are working correctly.
 - Enhanced analytics: tire degradation, fuel consumption, DRS usage, heat maps
 
 **Requires:**
-- Backend running on http://https://f1-track-ai-production.up.railway.app
+- Backend running on https://f1-track-ai-production.up.railway.app
 - Session data loaded (wait 10-30 seconds after backend starts)
 
 ### 2. **Strategy Engine** (🎯 Strategy Engine)
@@ -119,7 +119,7 @@ INFO:     Uvicorn running on http://0.0.0.0:8000
 **Solution:**
 1. Switch to a different session manually:
    ```bash
-   curl -X POST http://https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=R&year=2025
+   curl -X POST https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=R&year=2025
    ```
 2. Or wait for backend to auto-detect a session with data
 
@@ -152,8 +152,8 @@ allow_origins=[
 1. Open browser console (F12) and check for errors
 2. Test endpoints manually:
    ```bash
-   curl http://https://f1-track-ai-production.up.railway.app/api/session/info
-   curl http://https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry
+   curl https://f1-track-ai-production.up.railway.app/api/session/info
+   curl https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry
    ```
 3. Check backend console for Python errors
 
@@ -202,19 +202,19 @@ Required packages:
 
 ✅ **Backend Health Check:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/session/info
+curl https://f1-track-ai-production.up.railway.app/api/session/info
 ```
 Should return: `{"success": true, "session_type": "R", ...}`
 
 ✅ **Race Analysis:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry
+curl https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry
 ```
 Should return: `{"success": true, "drivers": [...], ...}`
 
 ✅ **Strategy Engine:**
 ```bash
-curl "http://https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1"
+curl "https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1"
 ```
 Should return: `{"success": true, "strategies": [...], ...}`
 

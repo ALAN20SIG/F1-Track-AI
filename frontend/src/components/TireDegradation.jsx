@@ -16,7 +16,7 @@ const TireDegradation = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://https://f1-track-ai-production.up.railway.app/api/tire/degradation/predict?compound=${compound}&race_laps=${raceLaps}`
+        `https://f1-track-ai-production.up.railway.app/api/tire/degradation/predict?compound=${compound}&race_laps=${raceLaps}`
       );
       const data = await response.json();
       
@@ -34,7 +34,7 @@ const TireDegradation = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://https://f1-track-ai-production.up.railway.app/api/tire/strategy/recommend?race_distance=${raceLaps}&min_pit_stops=1&weather_condition=DRY`,
+        `https://f1-track-ai-production.up.railway.app/api/tire/strategy/recommend?race_distance=${raceLaps}&min_pit_stops=1&weather_condition=DRY`,
         { method: 'POST' }
       );
       const data = await response.json();

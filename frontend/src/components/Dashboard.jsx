@@ -10,7 +10,7 @@ const Dashboard = () => {
     // Fetch live data from FastF1 API continuously
     const fetchLiveData = async () => {
       try {
-        const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/timing');
+        const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/timing');
         
         if (response.ok) {
           const data = await response.json();

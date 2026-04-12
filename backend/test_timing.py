@@ -7,7 +7,7 @@ print("Testing Strategy Engine response time...\n")
 start = time.time()
 try:
     response = requests.get(
-        'http://https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1',
+        'https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1',
         timeout=30
     )
     end = time.time()

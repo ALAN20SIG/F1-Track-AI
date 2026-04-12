@@ -149,7 +149,7 @@ The system now follows this order:
 
 ### **Check API Directly:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/live/timing
+curl https://f1-track-ai-production.up.railway.app/api/live/timing
 ```
 
 **Expected Response:**

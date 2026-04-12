@@ -129,19 +129,19 @@
 
 ```bash
 # Test multi-source API system
-curl http://https://f1-track-ai-production.up.railway.app/api/sources/test | jq
+curl https://f1-track-ai-production.up.railway.app/api/sources/test | jq
 
 # Get race prediction
-curl http://https://f1-track-ai-production.up.railway.app/api/race/prediction | jq '.podium'
+curl https://f1-track-ai-production.up.railway.app/api/race/prediction | jq '.podium'
 
 # View model metrics
-curl http://https://f1-track-ai-production.up.railway.app/api/race/model/info | jq '.model_info.evaluation_metrics'
+curl https://f1-track-ai-production.up.railway.app/api/race/model/info | jq '.model_info.evaluation_metrics'
 
 # Check API source rankings
-curl http://https://f1-track-ai-production.up.railway.app/api/sources/status | jq '.status.sources'
+curl https://f1-track-ai-production.up.railway.app/api/sources/status | jq '.status.sources'
 
 # Get weather from best source
-curl http://https://f1-track-ai-production.up.railway.app/api/live/weather | jq '.display'
+curl https://f1-track-ai-production.up.railway.app/api/live/weather | jq '.display'
 ```
 
 ### **Verified Results:**
@@ -236,7 +236,7 @@ documentation/
 ```bash
 cd backend
 python main.py
-# Server runs on http://https://f1-track-ai-production.up.railway.app
+# Server runs on https://f1-track-ai-production.up.railway.app
 ```
 
 ### **2. Start Frontend:**
@@ -248,13 +248,13 @@ npm run dev
 
 ### **3. Access Features:**
 - **Live Timing:** http://localhost:3000
-- **Race Prediction API:** http://https://f1-track-ai-production.up.railway.app/api/race/prediction
-- **API Documentation:** http://https://f1-track-ai-production.up.railway.app/docs
+- **Race Prediction API:** https://f1-track-ai-production.up.railway.app/api/race/prediction
+- **API Documentation:** https://f1-track-ai-production.up.railway.app/docs
 
 ### **4. Train Full Model (Optional):**
 ```bash
 # Via API (recommended)
-curl -X POST http://https://f1-track-ai-production.up.railway.app/api/race/train
+curl -X POST https://f1-track-ai-production.up.railway.app/api/race/train
 
 # Or manually
 cd backend
@@ -318,19 +318,19 @@ python train_race_model.py
 ### **Get Podium Prediction:**
 ```javascript
 // Frontend
-const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/race/prediction');
+const response = await fetch('https://f1-track-ai-production.up.railway.app/api/race/prediction');
 const data = await response.json();
 console.log('Podium:', data.podium);
 ```
 
 ### **Compare API Sources:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/sources/test | jq '.timing.rankings'
+curl https://f1-track-ai-production.up.railway.app/api/sources/test | jq '.timing.rankings'
 ```
 
 ### **View Model Metrics:**
 ```bash
-curl http://https://f1-track-ai-production.up.railway.app/api/race/model/info | jq '.model_info.evaluation_metrics'
+curl https://f1-track-ai-production.up.railway.app/api/race/model/info | jq '.model_info.evaluation_metrics'
 ```
 
 ---
@@ -380,8 +380,8 @@ curl http://https://f1-track-ai-production.up.railway.app/api/race/model/info | 
 
 **Access the system:**
 - Dashboard: http://localhost:3000
-- API: http://https://f1-track-ai-production.up.railway.app
-- Prediction: http://https://f1-track-ai-production.up.railway.app/api/race/prediction
+- API: https://f1-track-ai-production.up.railway.app
+- Prediction: https://f1-track-ai-production.up.railway.app/api/race/prediction
 
 **Total Implementation:**
 - **Backend:** 2,443+ lines of Python code

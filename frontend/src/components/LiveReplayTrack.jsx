@@ -147,7 +147,7 @@ const LiveReplayTrack = () => {
   // Check if live session is active
   const checkSessionStatus = async () => {
     try {
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/session/info');
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/session/info');
       const data = await response.json();
       
       if (data.success && isMountedRef.current) {
@@ -179,7 +179,7 @@ const LiveReplayTrack = () => {
   // Fetch live position data
   const fetchLiveData = async () => {
     try {
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/positions');
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/positions');
       const data = await response.json();
       
       if (data.success && data.positions && isMountedRef.current) {
@@ -240,7 +240,7 @@ const LiveReplayTrack = () => {
   // Load historical replay data
   const loadReplayData = async () => {
     try {
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/replay/race-data');
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/replay/race-data');
       const data = await response.json();
       
       if (data.success && data.replay_data && isMountedRef.current) {

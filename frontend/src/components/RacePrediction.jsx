@@ -19,7 +19,7 @@ const RacePrediction = () => {
   const fetchPrediction = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/race/prediction');
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/race/prediction');
       const data = await response.json();
       
       if (data.success) {
@@ -38,7 +38,7 @@ const RacePrediction = () => {
 
   const fetchModelInfo = async () => {
     try {
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/race/model/info');
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/race/model/info');
       const data = await response.json();
       
       if (data.success) {
@@ -54,7 +54,7 @@ const RacePrediction = () => {
       setLoading(true);
       setError('Training model... This may take 30-60 seconds');
       
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/race/train', {
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/race/train', {
         method: 'POST'
       });
       const data = await response.json();

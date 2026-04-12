@@ -5,7 +5,7 @@ Checks all endpoints and data flow
 import requests
 import json
 
-BASE_URL = "http://https://f1-track-ai-production.up.railway.app"
+BASE_URL = "https://f1-track-ai-production.up.railway.app"
 
 print("=" * 70)
 print("STRATEGY ENGINE DIAGNOSTIC")
@@ -110,7 +110,7 @@ print("=" * 70)
 print("\nIf all tests passed (✓), the issue is likely in the frontend:")
 print("  1. Check browser console for errors (F12)")
 print("  2. Verify frontend is running (npm run dev)")
-print("  3. Check if frontend is connecting to http://https://f1-track-ai-production.up.railway.app")
+print("  3. Check if frontend is connecting to https://f1-track-ai-production.up.railway.app")
 print("  4. Clear browser cache and reload")
 print("\nCommon Issues:")
 print("  - Frontend not running: Start with 'npm run dev' in frontend folder")

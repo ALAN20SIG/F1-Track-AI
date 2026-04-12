@@ -18,7 +18,7 @@ const Weather = () => {
     // Fetch real-time weather data from backend API
     const fetchWeather = async () => {
       try {
-        const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/weather');
+        const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/weather');
         const data = await response.json();
         
         if (data.success && data.display) {

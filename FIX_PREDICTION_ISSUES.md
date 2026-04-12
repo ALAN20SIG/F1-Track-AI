@@ -173,7 +173,7 @@ python main.py
 ### Option B: Force Retrain via API
 ```powershell
 # While backend is running:
-curl -X POST http://https://f1-track-ai-production.up.railway.app/api/race/train
+curl -X POST https://f1-track-ai-production.up.railway.app/api/race/train
 
 # Wait 60 seconds, then restart backend
 # Stop with Ctrl+C

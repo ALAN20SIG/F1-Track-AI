@@ -121,10 +121,10 @@ For now, use completed session data:
 
 ```bash
 # Switch to FP2 (completed session with data available)
-curl -X POST "http://https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=FP2&year=2024"
+curl -X POST "https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=FP2&year=2024"
 
 # Or wait for FP3 to complete, then refresh
-curl -X POST "http://https://f1-track-ai-production.up.railway.app/api/session/refresh"
+curl -X POST "https://f1-track-ai-production.up.railway.app/api/session/refresh"
 ```
 
 ---
@@ -168,17 +168,17 @@ curl -X POST "http://https://f1-track-ai-production.up.railway.app/api/session/r
 
 2. **Check Current Session:**
    ```bash
-   curl http://https://f1-track-ai-production.up.railway.app/api/session/info
+   curl https://f1-track-ai-production.up.railway.app/api/session/info
    ```
 
 3. **Test OpenF1 (will show auth error without key):**
    ```bash
-   curl http://https://f1-track-ai-production.up.railway.app/api/live/timing
+   curl https://f1-track-ai-production.up.railway.app/api/live/timing
    ```
 
 4. **Switch to Working Session (FP2 2024):**
    ```bash
-   curl -X POST "http://https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=FP2&year=2024"
+   curl -X POST "https://f1-track-ai-production.up.railway.app/api/session/switch?session_type=FP2&year=2024"
    ```
 
 ---

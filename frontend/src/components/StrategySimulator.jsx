@@ -9,7 +9,7 @@ const StrategySimulator = () => {
   const [results, setResults] = useState(null);
   const [jobId, setJobId] = useState(null);
 
-  const API_BASE_URL = 'http://https://f1-track-ai-production.up.railway.app';
+  const API_BASE_URL = 'https://f1-track-ai-production.up.railway.app';
 
   const toggleDriver = (driverCode) => {
     setSelectedDrivers(prev => {

@@ -217,7 +217,7 @@ const LiveTrackMap = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
       
-      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/positions', {
+      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/positions', {
         signal: controller.signal
       });
       clearTimeout(timeoutId);

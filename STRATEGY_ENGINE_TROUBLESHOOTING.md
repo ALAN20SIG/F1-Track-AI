@@ -81,8 +81,8 @@ python main.py
 ### Issue 3: Frontend on Wrong Port
 **Symptom**: Page loads but can't connect to backend
 
-**Solution**: Make sure frontend is accessing http://https://f1-track-ai-production.up.railway.app for backend
-- Check StrategyEngine.jsx line 49: `fetch('http://https://f1-track-ai-production.up.railway.app/api/db/drivers')`
+**Solution**: Make sure frontend is accessing https://f1-track-ai-production.up.railway.app for backend
+- Check StrategyEngine.jsx line 49: `fetch('https://f1-track-ai-production.up.railway.app/api/db/drivers')`
 
 ### Issue 4: Database Not Populated
 **Symptom**: Error says "No driver data available in database"
@@ -108,13 +108,13 @@ Run these to verify everything is working:
 
 ```bash
 # 1. Test backend health
-curl http://https://f1-track-ai-production.up.railway.app/api/session/info
+curl https://f1-track-ai-production.up.railway.app/api/session/info
 
 # 2. Test drivers endpoint
-curl http://https://f1-track-ai-production.up.railway.app/api/db/drivers
+curl https://f1-track-ai-production.up.railway.app/api/db/drivers
 
 # 3. Test strategy endpoint
-curl "http://https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1"
+curl "https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1"
 
 # 4. Run full diagnostic
 cd backend

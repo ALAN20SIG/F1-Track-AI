@@ -76,7 +76,7 @@ Track Map View: [Dedicated Full Page]
 
 #### FastF1 API Integration (Already Implemented)
 - **Verified:** `frontend/src/components/Dashboard.jsx`
-  - Live data fetching from `http://https://f1-track-ai-production.up.railway.app/api/live/timing`
+  - Live data fetching from `https://f1-track-ai-production.up.railway.app/api/live/timing`
   - Automatic fallback to simulation if API unavailable
   - Console logging confirms FastF1 data usage
   - Real-time updates every 5 seconds
@@ -358,7 +358,7 @@ npm run dev
 ```bash
 cd backend
 python main.py
-# Running on http://https://f1-track-ai-production.up.railway.app
+# Running on https://f1-track-ai-production.up.railway.app
 # ✓ FastF1 data loaded (Abu Dhabi GP 2024)
 ```
 
