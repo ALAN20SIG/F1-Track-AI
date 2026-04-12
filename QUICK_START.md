@@ -5,7 +5,7 @@
 **All systems are running!** 🎉
 
 ```
-✓ Backend:  http://localhost:8000  (FastAPI)
+✓ Backend:  http://https://f1-track-ai-production.up.railway.app  (FastAPI)
 ✓ Frontend: http://localhost:3001  (React + Vite)
 ✓ FastF1:   Abu Dhabi GP 2024 loaded (1035 laps, 20 drivers)
 ✓ ML Model: Ready for training
@@ -184,28 +184,28 @@ Once training is complete:
 ### FastF1 Data Endpoints:
 ```bash
 # Get live timing for all drivers
-curl http://localhost:8000/api/live/timing
+curl http://https://f1-track-ai-production.up.railway.app/api/live/timing
 
 # Get real-time track positions
-curl http://localhost:8000/api/live/positions
+curl http://https://f1-track-ai-production.up.railway.app/api/live/positions
 
 # Get Abu Dhabi circuit layout
-curl http://localhost:8000/api/live/track-layout
+curl http://https://f1-track-ai-production.up.railway.app/api/live/track-layout
 
 # Get telemetry for specific driver (e.g., VER)
-curl http://localhost:8000/api/live/telemetry/VER
+curl http://https://f1-track-ai-production.up.railway.app/api/live/telemetry/VER
 ```
 
 ### ML Prediction Endpoints:
 ```bash
 # Check if model is trained
-curl http://localhost:8000/api/ml/model/info
+curl http://https://f1-track-ai-production.up.railway.app/api/ml/model/info
 
 # Start training (5-15 minutes)
-curl -X POST http://localhost:8000/api/ml/train
+curl -X POST http://https://f1-track-ai-production.up.railway.app/api/ml/train
 
 # Get race winner predictions
-curl http://localhost:8000/api/ml/predict/race
+curl http://https://f1-track-ai-production.up.railway.app/api/ml/predict/race
 ```
 
 ---
@@ -256,7 +256,7 @@ F1 Track.AI/
 1. Check backend console for errors
 2. Ensure training completed successfully
 3. Refresh the predictions panel
-4. Check model info: `curl http://localhost:8000/api/ml/model/info`
+4. Check model info: `curl http://https://f1-track-ai-production.up.railway.app/api/ml/model/info`
 
 ---
 
@@ -305,7 +305,7 @@ F1 Track.AI/
 ## 🎉 What's Working Right Now
 
 ✅ **Backend Server**
-- Running on http://localhost:8000
+- Running on http://https://f1-track-ai-production.up.railway.app
 - FastF1 data loaded (Abu Dhabi GP 2024)
 - 20 drivers, 1035 laps cached
 - All API endpoints functional

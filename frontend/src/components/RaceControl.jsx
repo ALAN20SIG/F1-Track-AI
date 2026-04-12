@@ -144,7 +144,7 @@ const RaceControl = () => {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      const response = await fetch('http://localhost:8000/api/race-control', {
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/race-control', {
         signal: controller.signal
       });
       clearTimeout(timeoutId);

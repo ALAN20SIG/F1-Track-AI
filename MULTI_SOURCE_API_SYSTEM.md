@@ -131,7 +131,7 @@ Return: FastF1 data + rankings
 
 ### **1. Live Timing (Multi-Source)**
 ```bash
-GET http://localhost:8000/api/live/timing
+GET http://https://f1-track-ai-production.up.railway.app/api/live/timing
 ```
 
 **Response:**
@@ -163,7 +163,7 @@ GET http://localhost:8000/api/live/timing
 
 ### **2. Weather (Multi-Source)**
 ```bash
-GET http://localhost:8000/api/live/weather
+GET http://https://f1-track-ai-production.up.railway.app/api/live/weather
 ```
 
 **Response:**
@@ -189,7 +189,7 @@ GET http://localhost:8000/api/live/weather
 
 ### **3. API Source Status**
 ```bash
-GET http://localhost:8000/api/sources/status
+GET http://https://f1-track-ai-production.up.railway.app/api/sources/status
 ```
 
 **Response:**
@@ -216,12 +216,12 @@ GET http://localhost:8000/api/sources/status
 
 ### **4. Weather Source Status**
 ```bash
-GET http://localhost:8000/api/weather/status
+GET http://https://f1-track-ai-production.up.railway.app/api/weather/status
 ```
 
 ### **5. Test All Sources**
 ```bash
-GET http://localhost:8000/api/sources/test
+GET http://https://f1-track-ai-production.up.railway.app/api/sources/test
 ```
 
 **Returns:**
@@ -274,17 +274,17 @@ weather_sources.py structure:
 ### **Test Multi-Source System:**
 ```bash
 # Test all APIs and compare
-curl http://localhost:8000/api/sources/test
+curl http://https://f1-track-ai-production.up.railway.app/api/sources/test
 
 # Get current rankings
-curl http://localhost:8000/api/sources/status
-curl http://localhost:8000/api/weather/status
+curl http://https://f1-track-ai-production.up.railway.app/api/sources/status
+curl http://https://f1-track-ai-production.up.railway.app/api/weather/status
 
 # Verify live timing uses best source
-curl http://localhost:8000/api/live/timing | jq '.source'
+curl http://https://f1-track-ai-production.up.railway.app/api/live/timing | jq '.source'
 
 # Check weather source
-curl http://localhost:8000/api/live/weather | jq '.source'
+curl http://https://f1-track-ai-production.up.railway.app/api/live/weather | jq '.source'
 ```
 
 ### **Expected Results:**

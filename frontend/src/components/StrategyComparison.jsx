@@ -16,7 +16,7 @@ const StrategyComparison = () => {
   
   const fetchHistoricalData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/analysis/race-telemetry');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry');
       const data = await response.json();
       if (data.success) {
         setHistoricalData(data);
@@ -28,7 +28,7 @@ const StrategyComparison = () => {
   
   const fetchWeatherData = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/live/weather');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/weather');
       const data = await response.json();
       if (data.success) {
         setWeatherData(data.display);

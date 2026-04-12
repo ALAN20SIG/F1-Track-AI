@@ -437,7 +437,7 @@ F1 Track.AI/
 ## 🔌 API Endpoint Map
 
 ```
-FastAPI Backend (http://localhost:8000)
+FastAPI Backend (http://https://f1-track-ai-production.up.railway.app)
 │
 ├── Strategy Simulation
 │   ├── POST /api/strategy/simulate

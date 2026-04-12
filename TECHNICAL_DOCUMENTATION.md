@@ -494,7 +494,7 @@ DATABASE_URL=sqlite:///f1_data.db
 ML_MODEL_PATH=/path/to/models
 
 # Frontend
-VITE_API_URL=http://localhost:8000
+VITE_API_URL=http://https://f1-track-ai-production.up.railway.app
 ```
 
 ---

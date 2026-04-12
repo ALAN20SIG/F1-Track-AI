@@ -51,7 +51,7 @@ const TrackMap = () => {
 
   const fetchTrackLayout = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/live/track-layout');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/track-layout');
       const data = await response.json();
       
       if (data.success && data.layout) {
@@ -68,7 +68,7 @@ const TrackMap = () => {
 
   const fetchSessionInfo = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/session/info');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/session/info');
       const data = await response.json();
       
       if (data.success && isMountedRef.current) {
@@ -81,7 +81,7 @@ const TrackMap = () => {
 
   const fetchDriverPositions = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/live/positions');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/live/positions');
       const data = await response.json();
       
       if (data.success && isMountedRef.current) {

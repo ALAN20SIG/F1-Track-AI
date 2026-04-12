@@ -3,7 +3,7 @@
 **Date:** December 4, 2025  
 **Test Environment:** Windows 24H2, PowerShell  
 **Frontend:** React + Vite on http://localhost:3000  
-**Backend:** FastAPI on http://localhost:8000  
+**Backend:** FastAPI on http://https://f1-track-ai-production.up.railway.app  
 
 ---
 

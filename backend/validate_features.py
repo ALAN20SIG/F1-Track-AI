@@ -7,7 +7,7 @@ import requests
 import json
 import time
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://https://f1-track-ai-production.up.railway.app"
 
 def test_api_health():
     """Test 1: API Health Check"""

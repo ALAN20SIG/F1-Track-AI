@@ -22,7 +22,7 @@ The Weather component (`Weather.jsx`) was attempting to access a `forecast` arra
 #### Changes to `Weather.jsx`
 
 **1. Enhanced Weather Data Fetching**
-- Primary source: Backend API at `http://localhost:8000/api/live/weather`
+- Primary source: Backend API at `http://https://f1-track-ai-production.up.railway.app/api/live/weather`
 - Fallback: Direct OpenWeatherMap API call
 - Error handling: Default values if both sources fail
 

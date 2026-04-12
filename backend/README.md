@@ -15,7 +15,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The API will be available at `http://localhost:8000`
+The API will be available at `http://https://f1-track-ai-production.up.railway.app`
 
 ## API Endpoints
 

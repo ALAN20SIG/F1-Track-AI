@@ -86,7 +86,7 @@ GET  /api/ml/model/info      - Model information
 
 **Current Status:**
 ```
-✓ Backend running on http://localhost:8000
+✓ Backend running on http://https://f1-track-ai-production.up.railway.app
 ✓ FastF1 data loaded and cached
 ✓ ML endpoints ready
 ⚠ Model not trained yet (use /api/ml/train)
@@ -176,7 +176,7 @@ INFO: Uvicorn running on http://0.0.0.0:8000
 
 **Option B: Via API**
 ```bash
-curl -X POST http://localhost:8000/api/ml/train
+curl -X POST http://https://f1-track-ai-production.up.railway.app/api/ml/train
 ```
 
 **Option C: Direct Python**
@@ -469,7 +469,7 @@ Docs:     ✓ Complete (ML_PREDICTION_GUIDE.md)
 ```bash
 # Backend terminal (already running):
 # Wait for training to complete automatically OR
-# Visit: POST http://localhost:8000/api/ml/train
+# Visit: POST http://https://f1-track-ai-production.up.railway.app/api/ml/train
 ```
 
 ### 2. Start Frontend:
@@ -496,13 +496,13 @@ Open http://localhost:3000 and see:
 **API Testing:**
 ```bash
 # Check model status
-curl http://localhost:8000/api/ml/model/info
+curl http://https://f1-track-ai-production.up.railway.app/api/ml/model/info
 
 # Start training
-curl -X POST http://localhost:8000/api/ml/train
+curl -X POST http://https://f1-track-ai-production.up.railway.app/api/ml/train
 
 # Get predictions
-curl http://localhost:8000/api/ml/predict/race
+curl http://https://f1-track-ai-production.up.railway.app/api/ml/predict/race
 ```
 
 ---

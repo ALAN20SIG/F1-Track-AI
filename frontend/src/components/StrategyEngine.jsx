@@ -54,7 +54,7 @@ const StrategyEngine = () => {
       setLoadingDrivers(true);
       
       // Use database endpoint for instant loading (optimized with indexes)
-      const response = await fetch('http://localhost:8000/api/db/drivers', {
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/db/drivers', {
         signal: controller.signal,
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ const StrategyEngine = () => {
       if (error.name === 'AbortError') {
         setError('Connection timeout. Backend is not responding. Please restart the backend server.');
       } else {
-        setError('Unable to load drivers. Please ensure backend is running on http://localhost:8000');
+        setError('Unable to load drivers. Please ensure backend is running on http://https://f1-track-ai-production.up.railway.app');
       }
     } finally {
       setLoadingDrivers(false);
@@ -129,7 +129,7 @@ const StrategyEngine = () => {
     }, 60000);
     
     try {
-      const url = `http://localhost:8000/api/analysis/strategy-suggestions/${selectedDriver}?target_position=${targetPosition}`;
+      const url = `http://https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/${selectedDriver}?target_position=${targetPosition}`;
       console.log(`[${new Date().toLocaleTimeString()}] Fetching from:`, url);
       
       const startTime = Date.now();
@@ -176,7 +176,7 @@ const StrategyEngine = () => {
       if (error.name === 'AbortError') {
         setError('Request timed out after 60 seconds. The strategy analysis is taking too long. This may indicate a backend performance issue.');
       } else if (error.message.includes('Failed to fetch')) {
-        setError('Cannot connect to backend. Please ensure backend is running on http://localhost:8000');
+        setError('Cannot connect to backend. Please ensure backend is running on http://https://f1-track-ai-production.up.railway.app');
       } else {
         setError(error.message || 'Unable to generate strategies. Please check backend connection.');
       }

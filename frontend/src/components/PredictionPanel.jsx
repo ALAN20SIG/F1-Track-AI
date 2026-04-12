@@ -9,7 +9,7 @@ const PredictionPanel = () => {
 
   const fetchModelInfo = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/ml/model/info');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/ml/model/info');
       const data = await response.json();
       setModelInfo(data);
     } catch (err) {
@@ -21,7 +21,7 @@ const PredictionPanel = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8000/api/ml/predict/race');
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/ml/predict/race');
       const data = await response.json();
       
       if (data.success) {
@@ -40,7 +40,7 @@ const PredictionPanel = () => {
     setTraining(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8000/api/ml/train', {
+      const response = await fetch('http://https://f1-track-ai-production.up.railway.app/api/ml/train', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });

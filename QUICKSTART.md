@@ -8,7 +8,7 @@ Open a terminal and run:
 cd backend
 python main.py
 ```
-✅ Backend running on http://localhost:8000
+✅ Backend running on http://https://f1-track-ai-production.up.railway.app
 
 ### Step 2: Start the Frontend
 Open another terminal and run:
@@ -76,24 +76,24 @@ You can also use the API directly:
 
 ### Test Backend
 ```bash
-curl http://localhost:8000/
+curl http://https://f1-track-ai-production.up.railway.app/
 ```
 
 ### Start Simulation
 ```bash
-curl -X POST http://localhost:8000/api/simulate \
+curl -X POST http://https://f1-track-ai-production.up.railway.app/api/simulate \
   -H "Content-Type: application/json" \
   -d @simulation_request.json
 ```
 
 ### Check Status
 ```bash
-curl http://localhost:8000/api/status/{job_id}
+curl http://https://f1-track-ai-production.up.railway.app/api/status/{job_id}
 ```
 
 ### List All Jobs
 ```bash
-curl http://localhost:8000/api/jobs
+curl http://https://f1-track-ai-production.up.railway.app/api/jobs
 ```
 
 ## Troubleshooting

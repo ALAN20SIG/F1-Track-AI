@@ -109,21 +109,21 @@
             // Test 1: Session info (fast endpoint)
             await testEndpoint(
                 'Session Info (Fast)',
-                'http://localhost:8000/api/session/info',
+                'http://https://f1-track-ai-production.up.railway.app/api/session/info',
                 5000
             );
             
             // Test 2: Drivers (database endpoint)
             await testEndpoint(
                 'Drivers List (Database)',
-                'http://localhost:8000/api/db/drivers',
+                'http://https://f1-track-ai-production.up.railway.app/api/db/drivers',
                 5000
             );
             
             // Test 3: Strategy suggestions (slow endpoint)
             await testEndpoint(
                 'Strategy Suggestions (VER)',
-                'http://localhost:8000/api/analysis/strategy-suggestions/VER?target_position=1',
+                'http://https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/VER?target_position=1',
                 30000
             );
             

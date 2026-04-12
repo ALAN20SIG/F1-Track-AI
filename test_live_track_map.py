@@ -34,7 +34,7 @@ def test_endpoint(url, name):
         return False, None
 
 def main():
-    base_url = "http://localhost:8000"
+    base_url = "http://https://f1-track-ai-production.up.railway.app"
     
     print("=" * 60)
     print("🚀 LiveTrackMap API Test Suite")

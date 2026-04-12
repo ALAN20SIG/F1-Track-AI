@@ -24,7 +24,7 @@ except ImportError as e:
 print("\n✓ Checking backend server...")
 import requests
 try:
-    response = requests.get("http://localhost:8000/api/session/info", timeout=5)
+    response = requests.get("http://https://f1-track-ai-production.up.railway.app/api/session/info", timeout=5)
     if response.status_code == 200:
         data = response.json()
         print(f"  ✓ Backend running on port 8000")
@@ -57,7 +57,7 @@ endpoints = [
 
 for endpoint, name in endpoints:
     try:
-        response = requests.get(f"http://localhost:8000{endpoint}", timeout=10)
+        response = requests.get(f"http://https://f1-track-ai-production.up.railway.app{endpoint}", timeout=10)
         if response.status_code == 200:
             data = response.json()
             if data.get('success'):
@@ -74,7 +74,7 @@ print("✅ VERIFICATION COMPLETE")
 print("="*60)
 print("\nAccess your application at:")
 print("  Frontend: http://localhost:3000")
-print("  Backend API: http://localhost:8000/docs")
+print("  Backend API: http://https://f1-track-ai-production.up.railway.app/docs")
 print("\nNew Components:")
 print("  🏎️ Race Analysis - /race-analysis")
 print("  🎯 Strategy Engine - /strategy-engine")

@@ -5,7 +5,7 @@ Checks all endpoints and data flow
 import requests
 import json
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://https://f1-track-ai-production.up.railway.app"
 
 print("=" * 70)
 print("STRATEGY ENGINE DIAGNOSTIC")
@@ -110,11 +110,11 @@ print("=" * 70)
 print("\nIf all tests passed (✓), the issue is likely in the frontend:")
 print("  1. Check browser console for errors (F12)")
 print("  2. Verify frontend is running (npm run dev)")
-print("  3. Check if frontend is connecting to http://localhost:8000")
+print("  3. Check if frontend is connecting to http://https://f1-track-ai-production.up.railway.app")
 print("  4. Clear browser cache and reload")
 print("\nCommon Issues:")
 print("  - Frontend not running: Start with 'npm run dev' in frontend folder")
-print("  - Wrong port: Frontend should connect to localhost:8000")
+print("  - Wrong port: Frontend should connect to https://f1-track-ai-production.up.railway.app")
 print("  - Cache issue: Hard refresh browser (Ctrl+Shift+R)")
 print("  - React errors: Check browser console (F12 -> Console tab)")
 print("=" * 70 + "\n")

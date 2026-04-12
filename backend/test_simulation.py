@@ -3,7 +3,7 @@ import json
 import time
 
 # Test the simulation API
-API_URL = "http://localhost:8000"
+API_URL = "http://https://f1-track-ai-production.up.railway.app"
 
 # Prepare test data
 simulation_data = {

@@ -228,7 +228,7 @@ After restart, verify:
 
 3. **API Response:**
    ```bash
-   curl http://localhost:8000/api/session/info
+   curl http://https://f1-track-ai-production.up.railway.app/api/session/info
    ```
    Should show year 2025 (fallback) until 2026 data available
 

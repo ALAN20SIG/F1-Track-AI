@@ -173,7 +173,7 @@ lap_time_delta = grip_loss × 0.8  # seconds per lap
 
 ### 1. Get Degradation Prediction
 ```javascript
-fetch('http://localhost:8000/api/tire/degradation/predict?compound=MEDIUM&race_laps=30&driver_code=VER')
+fetch('http://https://f1-track-ai-production.up.railway.app/api/tire/degradation/predict?compound=MEDIUM&race_laps=30&driver_code=VER')
   .then(res => res.json())
   .then(data => {
     console.log('Degradation curve:', data.degradation_curve);
@@ -183,7 +183,7 @@ fetch('http://localhost:8000/api/tire/degradation/predict?compound=MEDIUM&race_l
 
 ### 2. Request Strategy Recommendation
 ```javascript
-fetch('http://localhost:8000/api/tire/strategy/recommend?race_distance=58&min_pit_stops=1&weather_condition=DRY', {
+fetch('http://https://f1-track-ai-production.up.railway.app/api/tire/strategy/recommend?race_distance=58&min_pit_stops=1&weather_condition=DRY', {
   method: 'POST'
 })
   .then(res => res.json())
@@ -197,7 +197,7 @@ fetch('http://localhost:8000/api/tire/strategy/recommend?race_distance=58&min_pi
 
 ### 3. Calculate Pit Windows
 ```javascript
-fetch('http://localhost:8000/api/tire/pitstop/windows', {
+fetch('http://https://f1-track-ai-production.up.railway.app/api/tire/pitstop/windows', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({
@@ -216,7 +216,7 @@ fetch('http://localhost:8000/api/tire/pitstop/windows', {
 
 ### 4. Real-Time Insights
 ```javascript
-fetch('http://localhost:8000/api/tire/realtime/insights?current_lap=25&current_compound=SOFT&stint_start_lap=15&driver_code=HAM')
+fetch('http://https://f1-track-ai-production.up.railway.app/api/tire/realtime/insights?current_lap=25&current_compound=SOFT&stint_start_lap=15&driver_code=HAM')
   .then(res => res.json())
   .then(data => {
     console.log('Current degradation:', data.degradation_percent);
