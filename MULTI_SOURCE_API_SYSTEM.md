@@ -131,7 +131,7 @@ Return: FastF1 data + rankings
 
 ### **1. Live Timing (Multi-Source)**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/live/timing
+GET https://f1-track-ai-backend.onrender.com/api/live/timing
 ```
 
 **Response:**
@@ -163,7 +163,7 @@ GET https://f1-track-ai-production.up.railway.app/api/live/timing
 
 ### **2. Weather (Multi-Source)**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/live/weather
+GET https://f1-track-ai-backend.onrender.com/api/live/weather
 ```
 
 **Response:**
@@ -189,7 +189,7 @@ GET https://f1-track-ai-production.up.railway.app/api/live/weather
 
 ### **3. API Source Status**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/sources/status
+GET https://f1-track-ai-backend.onrender.com/api/sources/status
 ```
 
 **Response:**
@@ -216,12 +216,12 @@ GET https://f1-track-ai-production.up.railway.app/api/sources/status
 
 ### **4. Weather Source Status**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/weather/status
+GET https://f1-track-ai-backend.onrender.com/api/weather/status
 ```
 
 ### **5. Test All Sources**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/sources/test
+GET https://f1-track-ai-backend.onrender.com/api/sources/test
 ```
 
 **Returns:**
@@ -274,17 +274,17 @@ weather_sources.py structure:
 ### **Test Multi-Source System:**
 ```bash
 # Test all APIs and compare
-curl https://f1-track-ai-production.up.railway.app/api/sources/test
+curl https://f1-track-ai-backend.onrender.com/api/sources/test
 
 # Get current rankings
-curl https://f1-track-ai-production.up.railway.app/api/sources/status
-curl https://f1-track-ai-production.up.railway.app/api/weather/status
+curl https://f1-track-ai-backend.onrender.com/api/sources/status
+curl https://f1-track-ai-backend.onrender.com/api/weather/status
 
 # Verify live timing uses best source
-curl https://f1-track-ai-production.up.railway.app/api/live/timing | jq '.source'
+curl https://f1-track-ai-backend.onrender.com/api/live/timing | jq '.source'
 
 # Check weather source
-curl https://f1-track-ai-production.up.railway.app/api/live/weather | jq '.source'
+curl https://f1-track-ai-backend.onrender.com/api/live/weather | jq '.source'
 ```
 
 ### **Expected Results:**

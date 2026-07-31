@@ -238,7 +238,7 @@ Top features affecting race outcome:
 
 **Request:**
 ```http
-POST https://f1-track-ai-production.up.railway.app/api/ml/train
+POST https://f1-track-ai-backend.onrender.com/api/ml/train
 Content-Type: application/json
 
 {
@@ -272,7 +272,7 @@ Content-Type: application/json
 
 **Request:**
 ```http
-GET https://f1-track-ai-production.up.railway.app/api/ml/predict/race
+GET https://f1-track-ai-backend.onrender.com/api/ml/predict/race
 ```
 
 **Response:**
@@ -322,7 +322,7 @@ GET https://f1-track-ai-production.up.railway.app/api/ml/predict/race
 
 **Request:**
 ```http
-GET https://f1-track-ai-production.up.railway.app/api/ml/model/info
+GET https://f1-track-ai-backend.onrender.com/api/ml/model/info
 ```
 
 **Response:**
@@ -363,7 +363,7 @@ const PredictionPanel = () => {
   const fetchPredictions = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/ml/predict/race');
+      const response = await fetch('https://f1-track-ai-backend.onrender.com/api/ml/predict/race');
       const data = await response.json();
       
       if (data.success) {
@@ -465,7 +465,7 @@ INFO: Uvicorn running on http://0.0.0.0:8000
 
 **Option A: Via API**
 ```bash
-curl -X POST https://f1-track-ai-production.up.railway.app/api/ml/train
+curl -X POST https://f1-track-ai-backend.onrender.com/api/ml/train
 ```
 
 **Option B: Direct Python**
@@ -516,13 +516,13 @@ F1 RACE WINNER PREDICTION - MODEL TRAINING
 ### 3. Get Predictions
 
 ```bash
-curl https://f1-track-ai-production.up.railway.app/api/ml/predict/race
+curl https://f1-track-ai-backend.onrender.com/api/ml/predict/race
 ```
 
 ### 4. Check Model Info
 
 ```bash
-curl https://f1-track-ai-production.up.railway.app/api/ml/model/info
+curl https://f1-track-ai-backend.onrender.com/api/ml/model/info
 ```
 
 ---

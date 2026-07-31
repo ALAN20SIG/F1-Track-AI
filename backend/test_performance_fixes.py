@@ -6,7 +6,7 @@ import requests
 import time
 import json
 
-BASE_URL = "https://f1-track-ai-production.up.railway.app"
+BASE_URL = "https://f1-track-ai-backend.onrender.com"
 
 def test_strategy_engine_performance():
     """Test that driver loading is fast (database endpoint with cache)"""

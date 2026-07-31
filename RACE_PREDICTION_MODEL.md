@@ -163,7 +163,7 @@ Based on FP2 qualifying positions and current weather:
 
 ### **1. Get Podium Prediction**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/race/prediction
+GET https://f1-track-ai-backend.onrender.com/api/race/prediction
 ```
 
 **Response:**
@@ -215,21 +215,21 @@ GET https://f1-track-ai-production.up.railway.app/api/race/prediction
 
 ### **2. Get Full Race Prediction** (All 20 Drivers)
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/race/prediction/full
+GET https://f1-track-ai-backend.onrender.com/api/race/prediction/full
 ```
 
 Returns complete predicted finishing order with probabilities.
 
 ### **3. Train Model**
 ```bash
-POST https://f1-track-ai-production.up.railway.app/api/race/train
+POST https://f1-track-ai-backend.onrender.com/api/race/train
 ```
 
 Trains the model with fresh data and returns evaluation metrics.
 
 ### **4. Get Model Info**
 ```bash
-GET https://f1-track-ai-production.up.railway.app/api/race/model/info
+GET https://f1-track-ai-backend.onrender.com/api/race/model/info
 ```
 
 **Response:**
@@ -356,16 +356,16 @@ race_predictor.load_model('abu_dhabi_race_predictor.pkl')
 
 ```bash
 # 1. Train model (if not already trained)
-curl -X POST https://f1-track-ai-production.up.railway.app/api/race/train
+curl -X POST https://f1-track-ai-backend.onrender.com/api/race/train
 
 # 2. Get podium prediction
-curl https://f1-track-ai-production.up.railway.app/api/race/prediction | jq '.podium'
+curl https://f1-track-ai-backend.onrender.com/api/race/prediction | jq '.podium'
 
 # 3. View model metrics
-curl https://f1-track-ai-production.up.railway.app/api/race/model/info | jq '.model_info.evaluation_metrics'
+curl https://f1-track-ai-backend.onrender.com/api/race/model/info | jq '.model_info.evaluation_metrics'
 
 # 4. Get full grid prediction
-curl https://f1-track-ai-production.up.railway.app/api/race/prediction/full | jq '.predictions[:10]'
+curl https://f1-track-ai-backend.onrender.com/api/race/prediction/full | jq '.predictions[:10]'
 ```
 
 ---
@@ -409,4 +409,4 @@ curl https://f1-track-ai-production.up.railway.app/api/race/prediction/full | jq
 
 **🏁 The Abu Dhabi 2025 GP race prediction model is ready to forecast podium finishes with enterprise-grade accuracy!**
 
-Access predictions at: **https://f1-track-ai-production.up.railway.app/api/race/prediction**
+Access predictions at: **https://f1-track-ai-backend.onrender.com/api/race/prediction**

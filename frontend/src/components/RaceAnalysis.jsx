@@ -45,7 +45,7 @@ const RaceAnalysis = () => {
 
   const fetchRaceTelemetry = async () => {
     try {
-      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/analysis/race-telemetry');
+      const response = await fetch('https://f1-track-ai-backend.onrender.com/api/analysis/race-telemetry');
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -71,7 +71,7 @@ const RaceAnalysis = () => {
 
   const fetchEnhancedAnalytics = async () => {
     try {
-      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/analysis/enhanced-analytics');
+      const response = await fetch('https://f1-track-ai-backend.onrender.com/api/analysis/enhanced-analytics');
       if (response.ok) {
         const data = await response.json();
         if (data.success) {

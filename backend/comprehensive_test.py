@@ -8,7 +8,7 @@ import time
 import json
 from typing import Dict, List
 
-BASE_URL = "https://f1-track-ai-production.up.railway.app"
+BASE_URL = "https://f1-track-ai-backend.onrender.com"
 
 class F1TrackAITester:
     def __init__(self):

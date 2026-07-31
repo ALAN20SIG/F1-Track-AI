@@ -9,7 +9,7 @@ for driver in ['VER', 'LEC', 'ALB']:
     
     try:
         response = requests.get(
-            f'https://f1-track-ai-production.up.railway.app/api/analysis/strategy-suggestions/{driver}?target_position=1',
+            f'https://f1-track-ai-backend.onrender.com/api/analysis/strategy-suggestions/{driver}?target_position=1',
             timeout=120
         )
         elapsed = time.time() - start

@@ -82,7 +82,7 @@ signalrcore==0.9.5
 ```
 Frontend Dashboard
     ↓
-fetch('https://f1-track-ai-production.up.railway.app/api/live/timing')
+fetch('https://f1-track-ai-backend.onrender.com/api/live/timing')
     ↓
 FastF1 Service → Abu Dhabi GP Session Data
     ↓

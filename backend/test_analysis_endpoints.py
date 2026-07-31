@@ -5,7 +5,7 @@ Run this after starting the backend server
 import requests
 import json
 
-BASE_URL = "https://f1-track-ai-production.up.railway.app"
+BASE_URL = "https://f1-track-ai-backend.onrender.com"
 
 def test_endpoint(name, endpoint):
     """Test an API endpoint"""

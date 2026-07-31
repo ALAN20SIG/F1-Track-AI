@@ -92,13 +92,13 @@ Ergast (Priority 6) - Historical data only
 
 ```bash
 # Check session info
-Invoke-WebRequest -Uri "https://f1-track-ai-production.up.railway.app/api/session/info"
+Invoke-WebRequest -Uri "https://f1-track-ai-backend.onrender.com/api/session/info"
 
 # Get live timing (uses OpenF1)
-Invoke-WebRequest -Uri "https://f1-track-ai-production.up.railway.app/api/live/timing"
+Invoke-WebRequest -Uri "https://f1-track-ai-backend.onrender.com/api/live/timing"
 
 # Check API source rankings
-Invoke-WebRequest -Uri "https://f1-track-ai-production.up.railway.app/api/sources/status"
+Invoke-WebRequest -Uri "https://f1-track-ai-backend.onrender.com/api/sources/status"
 ```
 
 ---

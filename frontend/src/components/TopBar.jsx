@@ -15,7 +15,7 @@ const TopBar = ({ raceTime }) => {
     // Fetch real weather data from backend
     const fetchWeather = async () => {
       try {
-        const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/weather');
+        const response = await fetch('https://f1-track-ai-backend.onrender.com/api/live/weather');
         if (response.ok) {
           const data = await response.json();
           if (data.success && data.display) {

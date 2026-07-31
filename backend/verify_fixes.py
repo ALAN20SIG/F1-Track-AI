@@ -7,7 +7,7 @@ Quick verification script for the three fixes:
 import requests
 import time
 
-BASE_URL = "https://f1-track-ai-production.up.railway.app"
+BASE_URL = "https://f1-track-ai-backend.onrender.com"
 
 def test_strategy_engine():
     """Test Strategy Engine with timeout"""

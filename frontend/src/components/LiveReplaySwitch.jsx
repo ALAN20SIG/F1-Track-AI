@@ -99,7 +99,7 @@ const LiveReplaySwitch = () => {
 
   const checkSessionStatus = async () => {
     try {
-      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/session/info');
+      const response = await fetch('https://f1-track-ai-backend.onrender.com/api/session/info');
       const data = await response.json();
       
       if (data.success) {
@@ -125,7 +125,7 @@ const LiveReplaySwitch = () => {
   const fetchLiveData = async () => {
     try {
       // Fetch positions
-      const posResponse = await fetch('https://f1-track-ai-production.up.railway.app/api/live/positions');
+      const posResponse = await fetch('https://f1-track-ai-backend.onrender.com/api/live/positions');
       const posData = await posResponse.json();
       
       if (posData.success && posData.positions) {
@@ -149,7 +149,7 @@ const LiveReplaySwitch = () => {
       
       // Fetch track layout if not loaded
       if (!trackLayout) {
-        const layoutResponse = await fetch('https://f1-track-ai-production.up.railway.app/api/live/track-layout');
+        const layoutResponse = await fetch('https://f1-track-ai-backend.onrender.com/api/live/track-layout');
         const layoutData = await layoutResponse.json();
         if (layoutData.success && layoutData.layout) {
           setTrackLayout(layoutData.layout);
@@ -163,7 +163,7 @@ const LiveReplaySwitch = () => {
   const loadReplayData = async () => {
     // For replay mode, we'll use historical session data
     try {
-      const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/timing');
+      const response = await fetch('https://f1-track-ai-backend.onrender.com/api/live/timing');
       const data = await response.json();
       
       if (data.success) {

@@ -258,7 +258,7 @@ confidence = max(30.0, min(95.0, overall_confidence))
 
 ### Option 1: Via API (Recommended)
 ```bash
-curl -X POST https://f1-track-ai-production.up.railway.app/api/race/train
+curl -X POST https://f1-track-ai-backend.onrender.com/api/race/train
 ```
 
 ### Option 2: Direct Python

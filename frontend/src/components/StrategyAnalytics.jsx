@@ -18,7 +18,7 @@ const StrategyAnalytics = () => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const response = await fetch('https://f1-track-ai-production.up.railway.app/api/race/prediction/full');
+        const response = await fetch('https://f1-track-ai-backend.onrender.com/api/race/prediction/full');
         const data = await response.json();
         
         if (data.success) {
@@ -34,7 +34,7 @@ const StrategyAnalytics = () => {
 
     const fetchLiveTiming = async () => {
       try {
-        const response = await fetch('https://f1-track-ai-production.up.railway.app/api/live/timing');
+        const response = await fetch('https://f1-track-ai-backend.onrender.com/api/live/timing');
         const data = await response.json();
         if (data.success && data.drivers) {
           setLiveTiming(data.drivers);

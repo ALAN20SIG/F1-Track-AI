@@ -437,7 +437,7 @@ F1 Track.AI/
 ## 🔌 API Endpoint Map
 
 ```
-FastAPI Backend (https://f1-track-ai-production.up.railway.app)
+FastAPI Backend (https://f1-track-ai-backend.onrender.com)
 │
 ├── Strategy Simulation
 │   ├── POST /api/strategy/simulate

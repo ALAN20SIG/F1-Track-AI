@@ -15,7 +15,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The API will be available at `https://f1-track-ai-production.up.railway.app`
+The API will be available at `https://f1-track-ai-backend.onrender.com`
 
 ## API Endpoints
 
